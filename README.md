@@ -12,7 +12,16 @@ And... why not?
 We use ANTLR as a compiler frontent to define syntax and rules (lexer and parser).
 Machine code generation or runtime exectution is still in research phase
 
+## LL code to EXEC
+
+1. `llc code.ll` -> generates `code.s`
+2. `gcc code.s -o code` -> generates `code` executable: run it by `./code`
+   From: [SO how can I create an executable from LLVM IR](https://stackoverflow.com/questions/45985953/how-can-i-create-an-executable-from-llvm-ir)
+
 ## Resources
+
+- [How to use LLVM](https://tomassetti.me/a-tutorial-on-how-to-write-a-compiler-using-llvm/)
+- [How to use LLVM in CSharp](https://ice1000.org/llvm-cs/en/CSharpLangImpl03/)
 
 - [Tutorial on how to write a compiler using ANTLR and LLVM](https://tomassetti.me/a-tutorial-on-how-to-write-a-compiler-using-llvm/)
 - [Tutorial on how to generate the Lexer and Parser from TS grammar](https://hayeol.tistory.com/45)
