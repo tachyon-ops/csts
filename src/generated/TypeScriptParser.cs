@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from TypeScriptParser.g4 by ANTLR 4.9.1
+// Generated from ./TypeScriptParser.g4 by ANTLR 4.9.1
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -241,6 +241,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitInitializer(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitInitializer(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -288,6 +294,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitBindingPattern(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitBindingPattern(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -349,6 +361,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitTypeParameters(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTypeParameters(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -413,6 +431,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitTypeParameterList(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTypeParameterList(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -476,6 +500,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitTypeParameter(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTypeParameter(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -547,6 +577,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitConstraint(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitConstraint(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -593,6 +629,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitTypeArguments(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTypeArguments(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -657,6 +699,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitTypeArgumentList(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTypeArgumentList(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -717,6 +765,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitTypeArgument(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTypeArgument(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -769,6 +823,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitType_(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitType_(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -859,6 +919,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitIntersection(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitIntersection(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class PrimaryContext : UnionOrIntersectionOrPrimaryTypeContext {
 		[System.Diagnostics.DebuggerNonUserCode] public PrimaryTypeContext primaryType() {
@@ -874,6 +940,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitPrimary(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrimary(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 	public partial class UnionContext : UnionOrIntersectionOrPrimaryTypeContext {
@@ -894,6 +966,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitUnion(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitUnion(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -1009,6 +1087,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitRedefinitionOfType(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitRedefinitionOfType(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class PredefinedPrimTypeContext : PrimaryTypeContext {
 		[System.Diagnostics.DebuggerNonUserCode] public PredefinedTypeContext predefinedType() {
@@ -1024,6 +1108,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitPredefinedPrimType(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPredefinedPrimType(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 	public partial class ArrayPrimTypeContext : PrimaryTypeContext {
@@ -1043,6 +1133,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitArrayPrimType(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitArrayPrimType(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class ParenthesizedPrimTypeContext : PrimaryTypeContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode OpenParen() { return GetToken(TypeScriptParser.OpenParen, 0); }
@@ -1061,6 +1157,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitParenthesizedPrimType(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitParenthesizedPrimType(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class ThisPrimTypeContext : PrimaryTypeContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode This() { return GetToken(TypeScriptParser.This, 0); }
@@ -1074,6 +1176,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitThisPrimType(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitThisPrimType(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 	public partial class TuplePrimTypeContext : PrimaryTypeContext {
@@ -1093,6 +1201,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitTuplePrimType(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTuplePrimType(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class ObjectPrimTypeContext : PrimaryTypeContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ObjectTypeContext objectType() {
@@ -1108,6 +1222,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitObjectPrimType(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitObjectPrimType(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 	public partial class ReferencePrimTypeContext : PrimaryTypeContext {
@@ -1125,6 +1245,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitReferencePrimType(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitReferencePrimType(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class QueryPrimTypeContext : PrimaryTypeContext {
 		[System.Diagnostics.DebuggerNonUserCode] public TypeQueryContext typeQuery() {
@@ -1140,6 +1266,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitQueryPrimType(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitQueryPrimType(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -1311,6 +1443,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitPredefinedType(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPredefinedType(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -1364,6 +1502,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitTypeReference(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTypeReference(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -1420,6 +1564,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitNestedTypeGeneric(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitNestedTypeGeneric(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -1478,6 +1628,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitTypeGeneric(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTypeGeneric(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -1540,6 +1696,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitTypeIncludeGeneric(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTypeIncludeGeneric(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -1613,6 +1775,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitTypeName(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTypeName(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -1671,6 +1839,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitObjectType(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitObjectType(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -1728,6 +1902,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitTypeBody(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTypeBody(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -1800,6 +1980,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitTypeMemberList(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTypeMemberList(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -1886,6 +2072,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitTypeMember(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTypeMember(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -1979,6 +2171,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitArrayType(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitArrayType(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -2029,6 +2227,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitTupleType(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTupleType(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -2083,6 +2287,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitTupleElementTypes(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTupleElementTypes(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -2152,6 +2362,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitFunctionType(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitFunctionType(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -2233,6 +2449,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitConstructorType(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitConstructorType(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -2306,6 +2528,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitTypeQuery(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTypeQuery(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -2358,6 +2586,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitTypeQueryExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTypeQueryExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -2447,6 +2681,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitPropertySignatur(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPropertySignatur(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -2534,6 +2774,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitTypeAnnotation(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTypeAnnotation(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -2586,6 +2832,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitCallSignature(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCallSignature(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -2672,6 +2924,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitParameterList(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitParameterList(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -2825,6 +3083,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitRequiredParameterList(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitRequiredParameterList(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -2887,6 +3151,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitParameter(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitParameter(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -2956,6 +3226,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitOptionalParameter(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitOptionalParameter(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -3066,6 +3342,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitRestParameter(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitRestParameter(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -3130,6 +3412,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitRequiredParameter(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitRequiredParameter(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -3205,6 +3493,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitAccessibilityModifier(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAccessibilityModifier(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -3258,6 +3552,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitIdentifierOrPattern(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitIdentifierOrPattern(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -3379,6 +3679,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitConstructSignature(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitConstructSignature(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -3463,6 +3769,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitIndexSignature(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitIndexSignature(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -3528,6 +3840,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitMethodSignature(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitMethodSignature(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -3590,6 +3908,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitTypeAliasDeclaration(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTypeAliasDeclaration(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -3664,6 +3988,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitConstructorDeclaration(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitConstructorDeclaration(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -3766,6 +4096,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitInterfaceDeclaration(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitInterfaceDeclaration(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -3865,6 +4201,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitInterfaceExtendsClause(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitInterfaceExtendsClause(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -3916,6 +4258,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitClassOrInterfaceTypeList(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitClassOrInterfaceTypeList(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -3981,6 +4329,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitEnumDeclaration(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitEnumDeclaration(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -4053,6 +4407,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitEnumBody(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitEnumBody(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -4113,6 +4473,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitEnumMemberList(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitEnumMemberList(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -4180,6 +4546,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitEnumMember(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitEnumMember(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -4241,6 +4613,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitNamespaceDeclaration(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitNamespaceDeclaration(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -4305,6 +4683,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitNamespaceName(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitNamespaceName(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -4384,6 +4768,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitImportAliasDeclaration(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitImportAliasDeclaration(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -4435,6 +4825,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitDecoratorList(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDecoratorList(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -4501,6 +4897,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitDecorator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDecorator(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -4570,6 +4972,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitDecoratorMemberExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDecoratorMemberExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -4672,6 +5080,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitDecoratorCallExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDecoratorCallExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -4717,6 +5131,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitProgram(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitProgram(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -4771,6 +5191,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitSourceElement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSourceElement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -4909,6 +5335,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -5159,6 +5591,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitBlock(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitBlock(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -5216,6 +5654,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitStatementList(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitStatementList(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -5287,6 +5731,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitAbstractDeclaration(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAbstractDeclaration(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -5353,6 +5803,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitImportStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitImportStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -5422,6 +5878,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitFromBlock(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitFromBlock(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -5563,6 +6025,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitMultipleImportStatement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitMultipleImportStatement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -5643,6 +6111,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitExportStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExportStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -5730,6 +6204,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitVariableStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitVariableStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -5886,6 +6366,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitVariableDeclarationList(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitVariableDeclarationList(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -5966,6 +6452,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitVariableDeclaration(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitVariableDeclaration(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -6074,6 +6566,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitEmptyStatement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitEmptyStatement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -6117,6 +6615,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitExpressionStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExpressionStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -6182,6 +6686,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitIfStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitIfStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -6264,6 +6774,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitDoStatement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDoStatement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class ForVarStatementContext : IterationStatementContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode For() { return GetToken(TypeScriptParser.For, 0); }
@@ -6299,6 +6815,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitForVarStatement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitForVarStatement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class ForVarInStatementContext : IterationStatementContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode For() { return GetToken(TypeScriptParser.For, 0); }
@@ -6329,6 +6851,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitForVarInStatement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitForVarInStatement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class WhileStatementContext : IterationStatementContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode While() { return GetToken(TypeScriptParser.While, 0); }
@@ -6350,6 +6878,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitWhileStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitWhileStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 	public partial class ForStatementContext : IterationStatementContext {
@@ -6380,6 +6914,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitForStatement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitForStatement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class ForInStatementContext : IterationStatementContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode For() { return GetToken(TypeScriptParser.For, 0); }
@@ -6406,6 +6946,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitForInStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitForInStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -6654,6 +7200,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitVarModifier(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitVarModifier(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -6706,6 +7258,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitContinueStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitContinueStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -6765,6 +7323,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitBreakStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitBreakStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -6827,6 +7391,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitReturnStatement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitReturnStatement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -6887,6 +7457,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitYieldStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitYieldStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -6951,6 +7527,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitWithStatement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitWithStatement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -7007,6 +7589,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitSwitchStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSwitchStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -7066,6 +7654,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitCaseBlock(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCaseBlock(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -7146,6 +7740,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitCaseClauses(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCaseClauses(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -7207,6 +7807,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitCaseClause(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCaseClause(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -7266,6 +7872,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitDefaultClause(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDefaultClause(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -7323,6 +7935,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitLabelledStatement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitLabelledStatement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -7373,6 +7991,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitThrowStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitThrowStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -7429,6 +8053,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitTryStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTryStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -7507,6 +8137,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitCatchProduction(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCatchProduction(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -7559,6 +8195,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitFinallyProduction(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitFinallyProduction(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -7604,6 +8246,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitDebuggerStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDebuggerStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -7657,6 +8305,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitFunctionDeclaration(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitFunctionDeclaration(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -7738,6 +8392,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitClassDeclaration(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitClassDeclaration(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -7811,6 +8471,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitClassHeritage(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitClassHeritage(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -7878,6 +8544,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitClassTail(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitClassTail(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -7941,6 +8613,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitClassExtendsClause(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitClassExtendsClause(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -7986,6 +8664,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitImplementsClause(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitImplementsClause(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -8043,6 +8727,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitClassElement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitClassElement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -8144,6 +8834,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitPropertyDeclarationExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPropertyDeclarationExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class MethodDeclarationExpressionContext : PropertyMemberDeclarationContext {
 		[System.Diagnostics.DebuggerNonUserCode] public PropertyMemberBaseContext propertyMemberBase() {
@@ -8172,6 +8868,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitMethodDeclarationExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitMethodDeclarationExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class GetterSetterDeclarationExpressionContext : PropertyMemberDeclarationContext {
 		[System.Diagnostics.DebuggerNonUserCode] public PropertyMemberBaseContext propertyMemberBase() {
@@ -8194,6 +8896,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitGetterSetterDeclarationExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitGetterSetterDeclarationExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class AbstractMemberDeclarationContext : PropertyMemberDeclarationContext {
 		[System.Diagnostics.DebuggerNonUserCode] public AbstractDeclarationContext abstractDeclaration() {
@@ -8209,6 +8917,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitAbstractMemberDeclaration(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAbstractMemberDeclaration(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -8368,6 +9082,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitPropertyMemberBase(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPropertyMemberBase(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -8450,6 +9170,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitIndexMemberDeclaration(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitIndexMemberDeclaration(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -8503,6 +9229,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitGeneratorMethod(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitGeneratorMethod(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -8587,6 +9319,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitGeneratorFunctionDeclaration(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitGeneratorFunctionDeclaration(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -8673,6 +9411,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitGeneratorBlock(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitGeneratorBlock(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -8751,6 +9495,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitGeneratorDefinition(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitGeneratorDefinition(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -8804,6 +9554,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitIteratorBlock(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitIteratorBlock(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -8894,6 +9650,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitIteratorDefinition(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitIteratorDefinition(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -8981,6 +9743,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitFormalParameterList(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitFormalParameterList(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -9118,6 +9886,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitFormalParameterArg(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitFormalParameterArg(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -9213,6 +9987,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitLastFormalParameterArg(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitLastFormalParameterArg(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -9257,6 +10037,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitFunctionBody(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitFunctionBody(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -9311,6 +10097,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitSourceElements(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSourceElements(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -9376,6 +10168,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitArrayLiteral(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitArrayLiteral(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -9440,6 +10238,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitElementList(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitElementList(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -9515,6 +10319,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitArrayElement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitArrayElement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -9602,6 +10412,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitObjectLiteral(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitObjectLiteral(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -9701,6 +10517,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitPropertyExpressionAssignment(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPropertyExpressionAssignment(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class ComputedPropertyExpressionAssignmentContext : PropertyAssignmentContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode OpenBracket() { return GetToken(TypeScriptParser.OpenBracket, 0); }
@@ -9723,6 +10545,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitComputedPropertyExpressionAssignment(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitComputedPropertyExpressionAssignment(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class PropertyShorthandContext : PropertyAssignmentContext {
 		[System.Diagnostics.DebuggerNonUserCode] public IdentifierOrKeyWordContext identifierOrKeyWord() {
@@ -9738,6 +10566,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitPropertyShorthand(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPropertyShorthand(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 	public partial class PropertySetterContext : PropertyAssignmentContext {
@@ -9755,6 +10589,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitPropertySetter(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPropertySetter(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class PropertyGetterContext : PropertyAssignmentContext {
 		[System.Diagnostics.DebuggerNonUserCode] public GetAccessorContext getAccessor() {
@@ -9770,6 +10610,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitPropertyGetter(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPropertyGetter(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 	public partial class RestParameterInObjectContext : PropertyAssignmentContext {
@@ -9787,6 +10633,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitRestParameterInObject(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitRestParameterInObject(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class MethodPropertyContext : PropertyAssignmentContext {
 		[System.Diagnostics.DebuggerNonUserCode] public GeneratorMethodContext generatorMethod() {
@@ -9802,6 +10654,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitMethodProperty(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitMethodProperty(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -9931,6 +10789,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitGetAccessor(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitGetAccessor(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -10008,6 +10872,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitSetAccessor(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSetAccessor(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -10095,6 +10965,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitPropertyName(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPropertyName(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -10220,6 +11096,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitArguments(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitArguments(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -10293,6 +11175,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitArgumentList(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitArgumentList(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -10356,6 +11244,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitArgument(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitArgument(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -10432,6 +11326,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitExpressionSequence(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExpressionSequence(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -10505,6 +11405,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitFunctionExpressionDeclaration(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitFunctionExpressionDeclaration(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -10599,6 +11505,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitTemplateStringExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTemplateStringExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class TernaryExpressionContext : SingleExpressionContext {
 		[System.Diagnostics.DebuggerNonUserCode] public SingleExpressionContext[] singleExpression() {
@@ -10620,6 +11532,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitTernaryExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTernaryExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class LogicalAndExpressionContext : SingleExpressionContext {
 		[System.Diagnostics.DebuggerNonUserCode] public SingleExpressionContext[] singleExpression() {
@@ -10640,6 +11558,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitLogicalAndExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitLogicalAndExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class GeneratorsExpressionContext : SingleExpressionContext {
 		[System.Diagnostics.DebuggerNonUserCode] public GeneratorBlockContext generatorBlock() {
@@ -10655,6 +11579,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitGeneratorsExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitGeneratorsExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 	public partial class PreIncrementExpressionContext : SingleExpressionContext {
@@ -10673,6 +11603,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitPreIncrementExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPreIncrementExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class ObjectLiteralExpressionContext : SingleExpressionContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ObjectLiteralContext objectLiteral() {
@@ -10688,6 +11624,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitObjectLiteralExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitObjectLiteralExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 	public partial class InExpressionContext : SingleExpressionContext {
@@ -10709,6 +11651,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitInExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitInExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class LogicalOrExpressionContext : SingleExpressionContext {
 		[System.Diagnostics.DebuggerNonUserCode] public SingleExpressionContext[] singleExpression() {
@@ -10729,6 +11677,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitLogicalOrExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitLogicalOrExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class GenericTypesContext : SingleExpressionContext {
 		[System.Diagnostics.DebuggerNonUserCode] public TypeArgumentsContext typeArguments() {
@@ -10748,6 +11702,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitGenericTypes(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitGenericTypes(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class NotExpressionContext : SingleExpressionContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Not() { return GetToken(TypeScriptParser.Not, 0); }
@@ -10765,6 +11725,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitNotExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitNotExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class PreDecreaseExpressionContext : SingleExpressionContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode MinusMinus() { return GetToken(TypeScriptParser.MinusMinus, 0); }
@@ -10781,6 +11747,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitPreDecreaseExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPreDecreaseExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 	public partial class ArgumentsExpressionContext : SingleExpressionContext {
@@ -10801,6 +11773,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitArgumentsExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitArgumentsExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class ThisExpressionContext : SingleExpressionContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode This() { return GetToken(TypeScriptParser.This, 0); }
@@ -10814,6 +11792,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitThisExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitThisExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 	public partial class FunctionExpressionContext : SingleExpressionContext {
@@ -10831,6 +11815,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitFunctionExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitFunctionExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class UnaryMinusExpressionContext : SingleExpressionContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Minus() { return GetToken(TypeScriptParser.Minus, 0); }
@@ -10847,6 +11837,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitUnaryMinusExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitUnaryMinusExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 	public partial class AssignmentExpressionContext : SingleExpressionContext {
@@ -10868,6 +11864,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitAssignmentExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAssignmentExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class PostDecreaseExpressionContext : SingleExpressionContext {
 		[System.Diagnostics.DebuggerNonUserCode] public SingleExpressionContext singleExpression() {
@@ -10885,6 +11887,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitPostDecreaseExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPostDecreaseExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class TypeofExpressionContext : SingleExpressionContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Typeof() { return GetToken(TypeScriptParser.Typeof, 0); }
@@ -10901,6 +11909,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitTypeofExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTypeofExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 	public partial class InstanceofExpressionContext : SingleExpressionContext {
@@ -10922,6 +11936,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitInstanceofExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitInstanceofExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class UnaryPlusExpressionContext : SingleExpressionContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Plus() { return GetToken(TypeScriptParser.Plus, 0); }
@@ -10938,6 +11958,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitUnaryPlusExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitUnaryPlusExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 	public partial class DeleteExpressionContext : SingleExpressionContext {
@@ -10956,6 +11982,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitDeleteExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDeleteExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class GeneratorsFunctionExpressionContext : SingleExpressionContext {
 		[System.Diagnostics.DebuggerNonUserCode] public GeneratorFunctionDeclarationContext generatorFunctionDeclaration() {
@@ -10971,6 +12003,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitGeneratorsFunctionExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitGeneratorsFunctionExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 	public partial class ArrowFunctionExpressionContext : SingleExpressionContext {
@@ -10988,6 +12026,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitArrowFunctionExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitArrowFunctionExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class IteratorsExpressionContext : SingleExpressionContext {
 		[System.Diagnostics.DebuggerNonUserCode] public IteratorBlockContext iteratorBlock() {
@@ -11003,6 +12047,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitIteratorsExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitIteratorsExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 	public partial class EqualityExpressionContext : SingleExpressionContext {
@@ -11027,6 +12077,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitEqualityExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitEqualityExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class BitXOrExpressionContext : SingleExpressionContext {
 		[System.Diagnostics.DebuggerNonUserCode] public SingleExpressionContext[] singleExpression() {
@@ -11046,6 +12102,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitBitXOrExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitBitXOrExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 	public partial class CastAsExpressionContext : SingleExpressionContext {
@@ -11067,6 +12129,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitCastAsExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCastAsExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class SuperExpressionContext : SingleExpressionContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Super() { return GetToken(TypeScriptParser.Super, 0); }
@@ -11080,6 +12148,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitSuperExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSuperExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 	public partial class MultiplicativeExpressionContext : SingleExpressionContext {
@@ -11103,6 +12177,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitMultiplicativeExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitMultiplicativeExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class BitShiftExpressionContext : SingleExpressionContext {
 		[System.Diagnostics.DebuggerNonUserCode] public SingleExpressionContext[] singleExpression() {
@@ -11125,6 +12205,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitBitShiftExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitBitShiftExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class ParenthesizedExpressionContext : SingleExpressionContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode OpenParen() { return GetToken(TypeScriptParser.OpenParen, 0); }
@@ -11142,6 +12228,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitParenthesizedExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitParenthesizedExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 	public partial class AdditiveExpressionContext : SingleExpressionContext {
@@ -11163,6 +12255,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitAdditiveExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAdditiveExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 	public partial class RelationalExpressionContext : SingleExpressionContext {
@@ -11187,6 +12285,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitRelationalExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitRelationalExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class PostIncrementExpressionContext : SingleExpressionContext {
 		[System.Diagnostics.DebuggerNonUserCode] public SingleExpressionContext singleExpression() {
@@ -11204,6 +12308,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitPostIncrementExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPostIncrementExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class YieldExpressionContext : SingleExpressionContext {
 		[System.Diagnostics.DebuggerNonUserCode] public YieldStatementContext yieldStatement() {
@@ -11219,6 +12329,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitYieldExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitYieldExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 	public partial class BitNotExpressionContext : SingleExpressionContext {
@@ -11236,6 +12352,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitBitNotExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitBitNotExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 	public partial class NewExpressionContext : SingleExpressionContext {
@@ -11260,6 +12382,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitNewExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitNewExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class LiteralExpressionContext : SingleExpressionContext {
 		[System.Diagnostics.DebuggerNonUserCode] public LiteralContext literal() {
@@ -11276,6 +12404,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitLiteralExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitLiteralExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class ArrayLiteralExpressionContext : SingleExpressionContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ArrayLiteralContext arrayLiteral() {
@@ -11291,6 +12425,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitArrayLiteralExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitArrayLiteralExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 	public partial class MemberDotExpressionContext : SingleExpressionContext {
@@ -11315,6 +12455,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitMemberDotExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitMemberDotExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class ClassExpressionContext : SingleExpressionContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Class() { return GetToken(TypeScriptParser.Class, 0); }
@@ -11332,6 +12478,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitClassExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitClassExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 	public partial class MemberIndexExpressionContext : SingleExpressionContext {
@@ -11354,6 +12506,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitMemberIndexExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitMemberIndexExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class IdentifierExpressionContext : SingleExpressionContext {
 		[System.Diagnostics.DebuggerNonUserCode] public IdentifierNameContext identifierName() {
@@ -11372,6 +12530,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitIdentifierExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitIdentifierExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 	public partial class BitAndExpressionContext : SingleExpressionContext {
@@ -11393,6 +12557,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitBitAndExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitBitAndExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class BitOrExpressionContext : SingleExpressionContext {
 		[System.Diagnostics.DebuggerNonUserCode] public SingleExpressionContext[] singleExpression() {
@@ -11412,6 +12582,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitBitOrExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitBitOrExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 	public partial class AssignmentOperatorExpressionContext : SingleExpressionContext {
@@ -11435,6 +12611,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitAssignmentOperatorExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAssignmentOperatorExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class VoidExpressionContext : SingleExpressionContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode Void() { return GetToken(TypeScriptParser.Void, 0); }
@@ -11451,6 +12633,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitVoidExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitVoidExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -12145,6 +13333,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitAsExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAsExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -12221,6 +13415,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitArrowFunctionDeclaration(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitArrowFunctionDeclaration(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -12291,6 +13491,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitArrowFunctionParameters(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitArrowFunctionParameters(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -12368,6 +13574,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitArrowFunctionBody(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitArrowFunctionBody(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -12436,6 +13648,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitAssignmentOperator(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAssignmentOperator(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -12491,6 +13709,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitLiteral(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitLiteral(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -12584,6 +13808,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitNumericLiteral(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitNumericLiteral(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -12635,6 +13865,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitIdentifierName(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitIdentifierName(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -12745,6 +13981,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitIdentifierOrKeyWord(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitIdentifierOrKeyWord(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -12797,6 +14039,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitReservedWord(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitReservedWord(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -12959,6 +14207,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitKeyword(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitKeyword(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -13011,6 +14265,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitGetter(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitGetter(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -13057,6 +14317,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitSetter(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSetter(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -13100,6 +14366,12 @@ public partial class TypeScriptParser : TypeScriptParserBase {
 		public override void ExitRule(IParseTreeListener listener) {
 			ITypeScriptParserListener typedListener = listener as ITypeScriptParserListener;
 			if (typedListener != null) typedListener.ExitEos(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ITypeScriptParserVisitor<TResult> typedVisitor = visitor as ITypeScriptParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitEos(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 

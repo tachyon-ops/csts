@@ -1,3 +1,4 @@
 bin/
 obj/
 .vs/
+mono_crash.*

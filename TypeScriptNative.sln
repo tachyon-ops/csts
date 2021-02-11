@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.808.7
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "prog_lang", "prog_lang.csproj", "{F02D2A1D-4278-4F78-A4FD-8FC6C1406E8D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypeScriptNative", "TypeScriptNative.csproj", "{F02D2A1D-4278-4F78-A4FD-8FC6C1406E8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

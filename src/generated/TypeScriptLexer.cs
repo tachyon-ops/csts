@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from TypeScriptLexer.g4 by ANTLR 4.9.1
+// Generated from ./TypeScriptLexer.g4 by ANTLR 4.9.1
 
 // Unreachable code detected
 #pragma warning disable 0162

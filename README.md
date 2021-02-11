@@ -12,6 +12,11 @@ And... why not?
 We use ANTLR as a compiler frontent to define syntax and rules (lexer and parser).
 Machine code generation or runtime exectution is still in research phase
 
+## Generate ANTLR code
+
+1. `java -jar ../antlr-4.9.1-complete.jar -Dlanguage=CSharp ./TypeScriptLexer.g4 -visitor -o generated`
+2. `java -jar ../antlr-4.9.1-complete.jar -Dlanguage=CSharp ./TypeScriptParser.g4 -visitor -o generated`
+
 ## LL code to EXEC
 
 1. `llc code.ll` -> generates `code.s`
@@ -19,6 +24,8 @@ Machine code generation or runtime exectution is still in research phase
    From: [SO how can I create an executable from LLVM IR](https://stackoverflow.com/questions/45985953/how-can-i-create-an-executable-from-llvm-ir)
 
 ## Resources
+
+- [Basic C# interpreter](https://github.com/pg94au/Blinkenlights-.NET-Basic-Interpreter)
 
 - [How to use LLVM](https://tomassetti.me/a-tutorial-on-how-to-write-a-compiler-using-llvm/)
 - [How to use LLVM in CSharp](https://ice1000.org/llvm-cs/en/CSharpLangImpl03/)
