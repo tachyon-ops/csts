@@ -25,7 +25,7 @@ Machine code generation or runtime exectution is still in research phase
 
 ## Resources
 
-- [Roman language (and how to interpret a simple ANTLR)](https://gjdanis.github.io/2016/01/23/roman/)
+- [Roman language (and how to interpret a simple ANTLR)](https://gjdanis.github.io/2016/01/23/roman/) and a [SO](https://codereview.stackexchange.com/questions/117711/roman-numerals-with-antlr) to explain further.
 
 - [Basic C# interpreter](https://github.com/pg94au/Blinkenlights-.NET-Basic-Interpreter)
 
