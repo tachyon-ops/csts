@@ -37,3 +37,8 @@ Machine code generation or runtime exectution is still in research phase
 - [TS Grammar](https://github.com/antlr/grammars-v4/tree/master/typescript)
 - [ANTLR jar](https://www.antlr.org/download.html)
 - [The Definitive ANTLR 4 Reference](https://pragprog.com/titles/tpantlr2/the-definitive-antlr-4-reference/)
+
+
+// https://stackoverflow.com/questions/63542345/how-to-detect-for-loop-block-after-parsing-the-code-using-antlr
+// http://franckgaspoz.fr/en/first-steps-with-antlr4-in-csharp/
+// https://stackoverflow.com/questions/29971097/how-to-create-ast-with-antlr4
