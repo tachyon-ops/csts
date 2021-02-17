@@ -1,5 +1,4 @@
-using System;
-namespace TypeScriptNative.src.AST
+namespace TypeScriptNative.src.AST_
 {
 	public abstract class ExprAST
 	{

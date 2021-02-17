@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 
 using Antlr4.Runtime;
 using Antlr4.Runtime.Tree;
@@ -15,7 +14,7 @@ namespace TypeScriptNative.src
 
 		private readonly Stack<string> descentStack = new Stack<string>();
 
-		private readonly Stack<ASTContext> ascentStack = new Stack<ASTContext>();
+		//private readonly Stack<ASTContext> ascentStack = new Stack<ASTContext>();
 
 		public TypeScriptParserListener()
 		{
@@ -25,33 +24,23 @@ namespace TypeScriptNative.src
 		public void EnterEveryRule(ParserRuleContext ctx)
 		{
 			this.forLevel++;
+			var ruleName = TypeScriptParser.ruleNames[ctx.RuleIndex];
+			this.descentStack.Push(ruleName);
 
-			//var ruleName = TypeScriptParser.ruleNames[ctx.RuleIndex];
-			//this.descentStack.Push(ruleName);
-
-			printInfo("EnterEveryRule", ctx);
+			bool keepRule = ctx.ChildCount > 1;
+			if (!keepRule) return;
+			Console.WriteLine("".PadLeft(forLevel + 4) + "Enter rule " + ruleName);
+			//printInfo("EnterEveryRule", ctx);
 		}
 
 		public void ExitEveryRule(ParserRuleContext ctx)
 		{
 			this.forLevel--;
+			string ruleName = this.descentStack.Pop();
 
-			//string ruleName = this.descentStack.Pop();
-			//this.ascentStack.Push(
-			//	new ASTContext(
-			//		//IParserListenerType.GetMethod("Exit" + ruleName),
-			//		//this.listener,
-			//		argument
-			//	)
-			//);
-			//this.ascentStack.Push(
-			//	new ASTContext(
-			//		//IParserListenerType.GetMethod("Enter" + ruleName),
-			//		//this.listener,
-			//		argument
-			//	)
-			//);
-
+			bool keepRule = ctx.ChildCount > 1;
+			if (!keepRule) return;
+			Console.WriteLine("".PadLeft(forLevel + 4) + "Exit rule " + ruleName);
 			printInfo("ExitEveryRule", ctx);
 		}
 
@@ -69,10 +58,12 @@ namespace TypeScriptNative.src
 		{
 			if (this.forLevel == 0)
 			{
-				Console.WriteLine("\nExplore CST:");
-				Explore(ctx);
+				//Console.WriteLine("\nExplore CST:");
+				//Explore(ctx);
 				Console.WriteLine("\nExplore pre-AST (we can use this):");
 				ExploreAST(ctx);
+
+				Mapping.ProgramToAST(ctx);
 			}
 		}
 
@@ -109,26 +100,6 @@ namespace TypeScriptNative.src
 					Console.WriteLine(sep2 + c.ToString());
 				}
 			}
-		}
-
-		private sealed class ASTContext
-		{
-			public ASTContext(
-				//MethodInfo methodInfo,
-				//object instance,
-				ExprAST argument
-			)
-			{
-				//this.MethodInfo = methodInfo;
-				//this.Instance = instance;
-				this.Argument = argument;
-			}
-
-			//public MethodInfo MethodInfo { get; private set; }
-
-			public ExprAST Argument { get; set; }
-
-			//public object Instance { get; private set; }
 		}
 	}
 }
