@@ -100,7 +100,7 @@ namespace TypeScriptNative.src.AST
 				if (ruleName == "functionDeclaration")
 					return new Statement(FunctionToAST(child));
 				else if (ruleName == "expressionStatement")
-					return new Statement(new Expression()); // ToDO: ExpressionToAST(child)
+					return new Statement(ExpressionToAST(child)); // ToDO: ExpressionToAST(child)
 			}
 			else
 			{
@@ -138,6 +138,23 @@ namespace TypeScriptNative.src.AST
 			// - return statement
 
 			return new FunctionDeclaration();
+		}
+
+		// Expression
+		public static Expression ExpressionToAST(ParserRuleContext ctx)
+		{
+			return ExpressionToAST(ctx, false);
+		}
+
+		public static Expression ExpressionToAST(ParserRuleContext ctx, bool considerPosition)
+		{
+			Console.WriteLine(ctx.GetType() + " children: " + ctx.ChildCount);
+
+			foreach (var child in ctx.children)
+			{
+				Console.WriteLine(child.GetType() + " val: " + child.GetText() + " children: " + child.ChildCount);
+			}
+			return new Expression();
 		}
 	}
 
