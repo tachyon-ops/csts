@@ -1,6 +1,6 @@
 # csts
 
-Typescript runtime in C#
+Typescript runtime in C# (WIP and PoC trial)
 
 ## Why?
 
