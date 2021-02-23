@@ -35,11 +35,23 @@ namespace TypeScriptNative.src.AST
 		}
 	}
 
+	enum StatementType
+	{
+		RETURN,
+		SINGLE_EXPRESSION
+	}
+
 	// interface Statement : Node { }
 	class Statement : INode
 	{
+		INode child;
+		StatementType type;
 		public Statement() { }
-		public Statement(INode child) { }
+		public Statement(INode child, StatementType type = StatementType.SINGLE_EXPRESSION)
+		{
+			this.child = child;
+			this.type = type;
+		}
 	}
 
 	// interface Expression : Node { }

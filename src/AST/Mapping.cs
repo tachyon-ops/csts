@@ -35,7 +35,6 @@ namespace TypeScriptNative.src.AST
 					Console.WriteLine(c.ToString());
 				//statements.Add(new Statement(child));
 			}
-
 			return new Program(statements);
 		}
 
@@ -86,11 +85,13 @@ namespace TypeScriptNative.src.AST
 				ParserRuleContext child = (ParserRuleContext)ctx.children[0];
 				int ruleIndex = child.RuleIndex;
 				string ruleName = TypeScriptParser.ruleNames[ruleIndex];
-				//Console.WriteLine(ruleName);
+				Console.WriteLine("StatementToAST: " + ruleName);
 				if (ruleName == "functionDeclaration")
 					return new Statement(FunctionToAST(child));
 				else if (ruleName == "expressionStatement")
-					return new Statement(ExpressionToAST(child)); // ToDO: ExpressionToAST(child)
+					return new Statement(ExpressionToAST(child));
+				else if (ruleName == "returnStatement")
+					return new Statement(ExpressionToAST(child), StatementType.RETURN);
 			}
 			else
 			{
@@ -149,10 +150,36 @@ namespace TypeScriptNative.src.AST
 
 					int ruleIndex = child.RuleIndex;
 					string ruleName = TypeScriptParser.ruleNames[ruleIndex];
-
 					Console.WriteLine("Function body ruleName: " + ruleName);
+
+					if (ruleName == "functionBody")
+					{
+						FunctionBodyStatements(child);
+					}
 				}
 			}
+		}
+
+		private static List<Statement> FunctionBodyStatements(ParserRuleContext ctx, bool considerPosition = false)
+		{
+			foreach (var c in ctx.children)
+			{
+				Console.WriteLine(c.GetType() + " val: " + c.GetText() + " children: " + c.ChildCount);
+				if (c is ParserRuleContext)
+				{
+					var child = (ParserRuleContext)c;
+
+					int ruleIndex = child.RuleIndex;
+					string ruleName = TypeScriptParser.ruleNames[ruleIndex];
+					Console.WriteLine("Function body > functionBody > ruleName: " + ruleName);
+
+					if (ruleName == "sourceElements")
+					{
+						return SourceElementsToAST(child);
+					}
+				}
+			}
+			return new List<Statement>();
 		}
 
 		private static Tuple<string, List<Parameter>> CallSignatureToAST(ParserRuleContext ctx, bool considerPosition = false)
@@ -280,8 +307,62 @@ namespace TypeScriptNative.src.AST
 			foreach (var c in ctx.children)
 			{
 				//Console.WriteLine(c.GetType() + " val: " + c.GetText() + " children: " + c.ChildCount);
+
+				if (c is ParserRuleContext)
+				{
+					var child = (ParserRuleContext)c;
+					int ruleIndex = child.RuleIndex;
+					string ruleName = TypeScriptParser.ruleNames[ruleIndex];
+					Console.WriteLine("ExpressionToAST - ruleName: " + ruleName);
+					Console.WriteLine("ExpressionToAST - text: " + child.GetText());
+					//return child.GetText();
+
+					if (ruleName == "expressionSequence")
+					{
+						ExpressionSequenceToAST(child);
+					}
+				}
 			}
 			return new Expression();
+		}
+
+		public static void ExpressionSequenceToAST(ParserRuleContext ctx, bool considerPosition = false)
+		{
+			foreach (var c in ctx.children)
+			{
+				//Console.WriteLine(c.GetType() + " val: " + c.GetText() + " children: " + c.ChildCount);
+
+				if (c is ParserRuleContext)
+				{
+					var child = (ParserRuleContext)c;
+					int ruleIndex = child.RuleIndex;
+					string ruleName = TypeScriptParser.ruleNames[ruleIndex];
+					Console.WriteLine("ExpressionToAST - ExpressionSequenceToAST - ruleName: " + ruleName);
+					Console.WriteLine("ExpressionToAST - ExpressionSequenceToAST - text: " + child.GetText());
+
+					if (ruleName == "singleExpression")
+					{
+						SingleExpresionToAST(child);
+					}
+				}
+			}
+		}
+
+		public static void SingleExpresionToAST(ParserRuleContext ctx, bool considerPosition = false)
+		{
+			foreach (var c in ctx.children)
+			{
+				//Console.WriteLine(c.GetType() + " val: " + c.GetText() + " children: " + c.ChildCount);
+
+				if (c is ParserRuleContext)
+				{
+					var child = (ParserRuleContext)c;
+					int ruleIndex = child.RuleIndex;
+					string ruleName = TypeScriptParser.ruleNames[ruleIndex];
+					Console.WriteLine("ExpressionToAST - ExpressionSequenceToAST - SingleExpresionToAST - ruleName: " + ruleName);
+					Console.WriteLine("ExpressionToAST - ExpressionSequenceToAST - SingleExpresionToAST - text: " + child.GetText());
+				}
+			}
 		}
 	}
 
