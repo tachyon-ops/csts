@@ -22,9 +22,16 @@ namespace TypeScriptNative.src.AST
 
 	class FunctionDeclaration : INode
 	{
-		public FunctionDeclaration()
+
+		string functionName;
+		List<Parameter> parameters;
+		string type;
+		public FunctionDeclaration(string functionName, List<Parameter> parameters, string type = null)
 		{
-			Console.WriteLine("TODO: FunctionDeclaration");
+			this.functionName = functionName;
+			this.parameters = parameters;
+			this.type = type;
+			Console.WriteLine("TODO: FunctionDeclaration | identifier: " + this.functionName + " parameters: " + this.parameters.Count + " type: " + this.type);
 		}
 	}
 
@@ -157,6 +164,19 @@ namespace TypeScriptNative.src.AST
 		Print(Expression value)
 		{
 			this.value = value;
+		}
+	}
+
+	class Parameter : Statement
+	{
+		string varName;
+		string type;
+		bool optional;
+		public Parameter(string varName, string type, bool optional = false)
+		{
+			this.varName = varName;
+			this.type = type;
+			this.optional = optional;
 		}
 	}
 }

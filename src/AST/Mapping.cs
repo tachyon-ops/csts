@@ -10,12 +10,7 @@ namespace TypeScriptNative.src.AST
 	static class Mapping
 	{
 		// Program
-		public static Program ProgramToAST(ParserRuleContext ctx)
-		{
-			return ProgramToAST(ctx, false);
-		}
-
-		public static Program ProgramToAST(ParserRuleContext ctx, bool considerPosition)
+		public static Program ProgramToAST(ParserRuleContext ctx, bool considerPosition = false)
 		{
 			List<Statement> statements = new List<Statement>();
 
@@ -33,7 +28,7 @@ namespace TypeScriptNative.src.AST
 
 					if (ruleName == "sourceElements")
 					{
-						ExplodeSourceElements((ParserRuleContext)c);
+						SourceElementsToAST((ParserRuleContext)c);
 					}
 				}
 				else
@@ -44,7 +39,7 @@ namespace TypeScriptNative.src.AST
 			return new Program(statements);
 		}
 
-		public static List<Statement> ExplodeSourceElements(ParserRuleContext ctx)
+		public static List<Statement> SourceElementsToAST(ParserRuleContext ctx)
 		{
 			List<Statement> statements = new List<Statement>();
 			// loop those
@@ -56,13 +51,13 @@ namespace TypeScriptNative.src.AST
 
 				if (ruleName == "sourceElement")
 				{
-					statements.AddRange(ExplodeSourceElement((ParserRuleContext)c));
+					statements.AddRange(SourceElementToAST((ParserRuleContext)c));
 				}
 			}
 			return statements;
 		}
 
-		public static List<Statement> ExplodeSourceElement(ParserRuleContext ctx)
+		public static List<Statement> SourceElementToAST(ParserRuleContext ctx)
 		{
 			List<Statement> statements = new List<Statement>();
 			// loop those
@@ -82,12 +77,7 @@ namespace TypeScriptNative.src.AST
 
 
 		// Statement
-		public static Statement StatementToAST(ParserRuleContext ctx)
-		{
-			return StatementToAST(ctx, false);
-		}
-
-		public static Statement StatementToAST(ParserRuleContext ctx, bool considerPosition)
+		public static Statement StatementToAST(ParserRuleContext ctx, bool considerPosition = false)
 		{
 			Console.WriteLine(ctx.GetType() + " children: " + ctx.ChildCount);
 
@@ -96,7 +86,7 @@ namespace TypeScriptNative.src.AST
 				ParserRuleContext child = (ParserRuleContext)ctx.children[0];
 				int ruleIndex = child.RuleIndex;
 				string ruleName = TypeScriptParser.ruleNames[ruleIndex];
-				Console.WriteLine(ruleName);
+				//Console.WriteLine(ruleName);
 				if (ruleName == "functionDeclaration")
 					return new Statement(FunctionToAST(child));
 				else if (ruleName == "expressionStatement")
@@ -113,46 +103,183 @@ namespace TypeScriptNative.src.AST
 		}
 
 		// Function
-		public static FunctionDeclaration FunctionToAST(ParserRuleContext ctx)
+		public static FunctionDeclaration FunctionToAST(ParserRuleContext ctx, bool considerPosition = false)
 		{
-			return FunctionToAST(ctx, false);
-		}
+			//Console.WriteLine(ctx.GetType() + " children: " + ctx.ChildCount);
 
-		public static FunctionDeclaration FunctionToAST(ParserRuleContext ctx, bool considerPosition)
-		{
-			Console.WriteLine(ctx.GetType() + " children: " + ctx.ChildCount);
+			if (ctx.ChildCount < 6) throw new Exception("Function to AST has less than 6 children");
 
-			foreach (var child in ctx.children)
+			Tuple<string, List<Parameter>> callSignature = new Tuple<string, List<Parameter>>(null, new List<Parameter>());
+			foreach (var c in ctx.children)
 			{
-				Console.WriteLine(child.GetType() + " val: " + child.GetText() + " children: " + child.ChildCount);
+				//Console.WriteLine(c.GetType() + " val: " + c.GetText() + " children: " + c.ChildCount);
+
+				if (c is ParserRuleContext)
+				{
+					var child = (ParserRuleContext)c;
+
+					int ruleIndex = child.RuleIndex;
+					string ruleName = TypeScriptParser.ruleNames[ruleIndex];
+
+					//Console.WriteLine(ruleName);
+					if (ruleName == "callSignature")
+					{
+						callSignature = CallSignatureToAST(child);
+					}
+					if (ruleName == "functionBody")
+					{
+						// get expression and return expression
+						//functionBody =
+						FunctionBodyToAST(ctx);
+					}
+				}
 			}
 			string functionIdentifer = ctx.children[1].GetText();
-			string callSignature = ctx.children[2].GetText();
-			// - (
-			// - parameterList
-			// - )
-			// - typeAnnotation
+			return new FunctionDeclaration(functionIdentifer, callSignature.Item2, callSignature.Item1);
+		}
 
-			string functionBodyContext = ctx.children[4].GetText();
-			// - statements inside
-			// - return statement
+		private static void FunctionBodyToAST(ParserRuleContext ctx, bool considerPosition = false)
+		{
+			foreach (var c in ctx.children)
+			{
+				Console.WriteLine(c.GetType() + " val: " + c.GetText() + " children: " + c.ChildCount);
+				if (c is ParserRuleContext)
+				{
+					var child = (ParserRuleContext)c;
 
-			return new FunctionDeclaration();
+					int ruleIndex = child.RuleIndex;
+					string ruleName = TypeScriptParser.ruleNames[ruleIndex];
+
+					Console.WriteLine("Function body ruleName: " + ruleName);
+				}
+			}
+		}
+
+		private static Tuple<string, List<Parameter>> CallSignatureToAST(ParserRuleContext ctx, bool considerPosition = false)
+		{
+			string functionType = null;
+			List<Parameter> parameters = new List<Parameter>();
+			foreach (var c in ctx.children)
+			{
+				//Console.WriteLine(c.GetType() + " val: " + c.GetText() + " children: " + c.ChildCount);
+
+				if (c is ParserRuleContext)
+				{
+					var child = (ParserRuleContext)c;
+
+					int ruleIndex = child.RuleIndex;
+					string ruleName = TypeScriptParser.ruleNames[ruleIndex];
+
+					//Console.WriteLine("Call Signature: " + ruleName);
+					if (ruleName == "parameterList")
+					{
+						parameters.AddRange(ParameterListToAST(child));
+					}
+					if (ruleName == "typeAnnotation")
+					{
+						functionType = GetFunctionType(child);
+					}
+				}
+			}
+			return new Tuple<string, List<Parameter>>(functionType, parameters);
+		}
+
+		private static string GetFunctionType(ParserRuleContext ctx, bool considerPosition = false)
+		{
+			return ctx.children[1].GetText();
+		}
+
+		private static List<Parameter> ParameterListToAST(ParserRuleContext ctx, bool considerPosition = false)
+		{
+			List<Parameter> parameters = new List<Parameter>();
+			foreach (var c in ctx.children)
+			{
+				if (c is ParserRuleContext)
+				{
+					var child = (ParserRuleContext)c;
+					int ruleIndex = child.RuleIndex;
+					string ruleName = TypeScriptParser.ruleNames[ruleIndex];
+					//Console.WriteLine("Call Signature > Parameter List: " + ruleName);
+					if (ruleName == "parameter")
+					{
+						parameters.Add(ParameterToAST(child));
+					}
+				}
+			}
+			return parameters;
+		}
+
+		private static Parameter ParameterToAST(ParserRuleContext ctx, bool considerPosition = false)
+		{
+			foreach (var c in ctx.children)
+			{
+				if (c is ParserRuleContext)
+				{
+					var child = (ParserRuleContext)c;
+					int ruleIndex = child.RuleIndex;
+					string ruleName = TypeScriptParser.ruleNames[ruleIndex];
+					//Console.WriteLine("Call Signature > Parameter List > Parameter: " + ruleName);
+					if (ruleName == "requiredParameter")
+					{
+						return RequiredParameterToAST(child);
+					}
+				}
+			}
+			throw new Exception("No parameter present");
+		}
+
+		private static Parameter RequiredParameterToAST(ParserRuleContext ctx, bool considerPosition = false)
+		{
+			string identifier = null;
+			string type = null;
+			foreach (var c in ctx.children)
+			{
+				if (c is ParserRuleContext)
+				{
+					var child = (ParserRuleContext)c;
+					int ruleIndex = child.RuleIndex;
+					string ruleName = TypeScriptParser.ruleNames[ruleIndex];
+					//Console.WriteLine("Call Signature > Parameter List > Parameter > RequiredParam: " + ruleName);
+
+					if (ruleName == "identifierOrPattern")
+						identifier = child.GetText();
+					if (ruleName == "typeAnnotation")
+						type = child.GetText();
+				}
+			}
+			if (identifier != null && type != null)
+			{
+				return new Parameter(identifier, type);
+			}
+			throw new Exception("No identifier or type detected");
+		}
+
+		private static string ParamIdentifierOrPattern(ParserRuleContext ctx, bool considerPosition = false)
+		{
+			foreach (var c in ctx.children)
+			{
+				if (c is ParserRuleContext)
+				{
+					var child = (ParserRuleContext)c;
+					int ruleIndex = child.RuleIndex;
+					string ruleName = TypeScriptParser.ruleNames[ruleIndex];
+					//Console.WriteLine("Call Signature > Parameter List > Parameter > ParamIdentifierOrPattern " + ruleName);
+					Console.WriteLine("ruleName: " + ruleName);
+					Console.WriteLine("text: " + child.GetText());
+					return child.GetText();
+				}
+			}
+			throw new Exception("No identifier name detected");
 		}
 
 		// Expression
-		public static Expression ExpressionToAST(ParserRuleContext ctx)
+		public static Expression ExpressionToAST(ParserRuleContext ctx, bool considerPosition = false)
 		{
-			return ExpressionToAST(ctx, false);
-		}
+			//Console.WriteLine(ctx.GetType() + " children: " + ctx.ChildCount);
 
-		public static Expression ExpressionToAST(ParserRuleContext ctx, bool considerPosition)
-		{
-			Console.WriteLine(ctx.GetType() + " children: " + ctx.ChildCount);
-
-			foreach (var child in ctx.children)
+			foreach (var c in ctx.children)
 			{
-				Console.WriteLine(child.GetType() + " val: " + child.GetText() + " children: " + child.ChildCount);
+				//Console.WriteLine(c.GetType() + " val: " + c.GetText() + " children: " + c.ChildCount);
 			}
 			return new Expression();
 		}
