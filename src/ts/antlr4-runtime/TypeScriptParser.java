@@ -11825,304 +11825,304 @@ public class TypeScriptParser extends TypeScriptParserBase {
 			switch ( getInterpreter().adaptivePredict(_input,192,_ctx) ) {
 			case 1:
 				{
-				_localctx = new FunctionExpressionContext(_localctx);
+				_localctx = new ArrowFunctionExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
 
 				setState(1449);
-				functionExpressionDeclaration();
+				arrowFunctionDeclaration();
 				}
 				break;
 			case 2:
 				{
-				_localctx = new ArrowFunctionExpressionContext(_localctx);
-				_ctx = _localctx;
-				_prevctx = _localctx;
-				setState(1450);
-				arrowFunctionDeclaration();
-				}
-				break;
-			case 3:
-				{
 				_localctx = new ClassExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(1451);
+				setState(1450);
 				match(Class);
-				setState(1453);
+				setState(1452);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==Identifier) {
 					{
-					setState(1452);
+					setState(1451);
 					match(Identifier);
 					}
 				}
 
-				setState(1455);
+				setState(1454);
 				classTail();
 				}
 				break;
-			case 4:
+			case 3:
 				{
 				_localctx = new NewExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(1456);
+				setState(1455);
 				match(New);
-				setState(1457);
+				setState(1456);
 				singleExpression(0);
-				setState(1459);
+				setState(1458);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,188,_ctx) ) {
 				case 1:
 					{
-					setState(1458);
+					setState(1457);
 					typeArguments();
 					}
 					break;
 				}
-				setState(1462);
+				setState(1461);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,189,_ctx) ) {
 				case 1:
 					{
-					setState(1461);
+					setState(1460);
 					arguments();
 					}
 					break;
 				}
 				}
 				break;
-			case 5:
+			case 4:
 				{
 				_localctx = new DeleteExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(1464);
+				setState(1463);
 				match(Delete);
+				setState(1464);
+				singleExpression(39);
+				}
+				break;
+			case 5:
+				{
+				_localctx = new VoidExpressionContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
 				setState(1465);
+				match(Void);
+				setState(1466);
 				singleExpression(38);
 				}
 				break;
 			case 6:
 				{
-				_localctx = new VoidExpressionContext(_localctx);
+				_localctx = new TypeofExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(1466);
-				match(Void);
 				setState(1467);
+				match(Typeof);
+				setState(1468);
 				singleExpression(37);
 				}
 				break;
 			case 7:
 				{
-				_localctx = new TypeofExpressionContext(_localctx);
+				_localctx = new PreIncrementExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(1468);
-				match(Typeof);
 				setState(1469);
+				match(PlusPlus);
+				setState(1470);
 				singleExpression(36);
 				}
 				break;
 			case 8:
 				{
-				_localctx = new PreIncrementExpressionContext(_localctx);
+				_localctx = new PreDecreaseExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(1470);
-				match(PlusPlus);
 				setState(1471);
+				match(MinusMinus);
+				setState(1472);
 				singleExpression(35);
 				}
 				break;
 			case 9:
 				{
-				_localctx = new PreDecreaseExpressionContext(_localctx);
+				_localctx = new UnaryPlusExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(1472);
-				match(MinusMinus);
 				setState(1473);
+				match(Plus);
+				setState(1474);
 				singleExpression(34);
 				}
 				break;
 			case 10:
 				{
-				_localctx = new UnaryPlusExpressionContext(_localctx);
+				_localctx = new UnaryMinusExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(1474);
-				match(Plus);
 				setState(1475);
+				match(Minus);
+				setState(1476);
 				singleExpression(33);
 				}
 				break;
 			case 11:
 				{
-				_localctx = new UnaryMinusExpressionContext(_localctx);
+				_localctx = new BitNotExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(1476);
-				match(Minus);
 				setState(1477);
+				match(BitNot);
+				setState(1478);
 				singleExpression(32);
 				}
 				break;
 			case 12:
 				{
-				_localctx = new BitNotExpressionContext(_localctx);
+				_localctx = new NotExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(1478);
-				match(BitNot);
 				setState(1479);
+				match(Not);
+				setState(1480);
 				singleExpression(31);
 				}
 				break;
 			case 13:
 				{
-				_localctx = new NotExpressionContext(_localctx);
+				_localctx = new IteratorsExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(1480);
-				match(Not);
 				setState(1481);
-				singleExpression(30);
+				iteratorBlock();
 				}
 				break;
 			case 14:
 				{
-				_localctx = new IteratorsExpressionContext(_localctx);
+				_localctx = new GeneratorsExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
 				setState(1482);
-				iteratorBlock();
+				generatorBlock();
 				}
 				break;
 			case 15:
 				{
-				_localctx = new GeneratorsExpressionContext(_localctx);
+				_localctx = new GeneratorsFunctionExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
 				setState(1483);
-				generatorBlock();
+				generatorFunctionDeclaration();
 				}
 				break;
 			case 16:
 				{
-				_localctx = new GeneratorsFunctionExpressionContext(_localctx);
+				_localctx = new YieldExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
 				setState(1484);
-				generatorFunctionDeclaration();
+				yieldStatement();
 				}
 				break;
 			case 17:
 				{
-				_localctx = new YieldExpressionContext(_localctx);
+				_localctx = new ThisExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
 				setState(1485);
-				yieldStatement();
+				match(This);
 				}
 				break;
 			case 18:
 				{
-				_localctx = new ThisExpressionContext(_localctx);
-				_ctx = _localctx;
-				_prevctx = _localctx;
-				setState(1486);
-				match(This);
-				}
-				break;
-			case 19:
-				{
 				_localctx = new IdentifierExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(1487);
+				setState(1486);
 				identifierName();
-				setState(1489);
+				setState(1488);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,190,_ctx) ) {
 				case 1:
 					{
-					setState(1488);
+					setState(1487);
 					singleExpression(0);
 					}
 					break;
 				}
 				}
 				break;
-			case 20:
+			case 19:
 				{
 				_localctx = new SuperExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(1491);
+				setState(1490);
 				match(Super);
 				}
 				break;
-			case 21:
+			case 20:
 				{
 				_localctx = new LiteralExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(1492);
+				setState(1491);
 				literal();
 				}
 				break;
-			case 22:
+			case 21:
 				{
 				_localctx = new ArrayLiteralExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(1493);
+				setState(1492);
 				arrayLiteral();
 				}
 				break;
-			case 23:
+			case 22:
 				{
 				_localctx = new ObjectLiteralExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(1494);
+				setState(1493);
 				objectLiteral();
 				}
 				break;
-			case 24:
+			case 23:
 				{
 				_localctx = new ParenthesizedExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(1495);
+				setState(1494);
 				match(OpenParen);
-				setState(1496);
+				setState(1495);
 				expressionSequence();
-				setState(1497);
+				setState(1496);
 				match(CloseParen);
 				}
 				break;
-			case 25:
+			case 24:
 				{
 				_localctx = new GenericTypesContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(1499);
+				setState(1498);
 				typeArguments();
-				setState(1501);
+				setState(1500);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,191,_ctx) ) {
 				case 1:
 					{
-					setState(1500);
+					setState(1499);
 					expressionSequence();
 					}
 					break;
 				}
+				}
+				break;
+			case 25:
+				{
+				_localctx = new FunctionExpressionContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+				setState(1502);
+				functionExpressionDeclaration();
 				}
 				break;
 			}
@@ -12143,7 +12143,7 @@ public class TypeScriptParser extends TypeScriptParserBase {
 						_localctx = new MultiplicativeExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(1505);
-						if (!(precpred(_ctx, 29))) throw new FailedPredicateException(this, "precpred(_ctx, 29)");
+						if (!(precpred(_ctx, 30))) throw new FailedPredicateException(this, "precpred(_ctx, 30)");
 						setState(1506);
 						_la = _input.LA(1);
 						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << Multiply) | (1L << Divide) | (1L << Modulus))) != 0)) ) {
@@ -12155,7 +12155,7 @@ public class TypeScriptParser extends TypeScriptParserBase {
 							consume();
 						}
 						setState(1507);
-						singleExpression(30);
+						singleExpression(31);
 						}
 						break;
 					case 2:
@@ -12163,7 +12163,7 @@ public class TypeScriptParser extends TypeScriptParserBase {
 						_localctx = new AdditiveExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(1508);
-						if (!(precpred(_ctx, 28))) throw new FailedPredicateException(this, "precpred(_ctx, 28)");
+						if (!(precpred(_ctx, 29))) throw new FailedPredicateException(this, "precpred(_ctx, 29)");
 						setState(1509);
 						_la = _input.LA(1);
 						if ( !(_la==Plus || _la==Minus) ) {
@@ -12175,7 +12175,7 @@ public class TypeScriptParser extends TypeScriptParserBase {
 							consume();
 						}
 						setState(1510);
-						singleExpression(29);
+						singleExpression(30);
 						}
 						break;
 					case 3:
@@ -12183,7 +12183,7 @@ public class TypeScriptParser extends TypeScriptParserBase {
 						_localctx = new BitShiftExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(1511);
-						if (!(precpred(_ctx, 27))) throw new FailedPredicateException(this, "precpred(_ctx, 27)");
+						if (!(precpred(_ctx, 28))) throw new FailedPredicateException(this, "precpred(_ctx, 28)");
 						setState(1512);
 						_la = _input.LA(1);
 						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RightShiftArithmetic) | (1L << LeftShiftArithmetic) | (1L << RightShiftLogical))) != 0)) ) {
@@ -12195,7 +12195,7 @@ public class TypeScriptParser extends TypeScriptParserBase {
 							consume();
 						}
 						setState(1513);
-						singleExpression(28);
+						singleExpression(29);
 						}
 						break;
 					case 4:
@@ -12203,7 +12203,7 @@ public class TypeScriptParser extends TypeScriptParserBase {
 						_localctx = new RelationalExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(1514);
-						if (!(precpred(_ctx, 26))) throw new FailedPredicateException(this, "precpred(_ctx, 26)");
+						if (!(precpred(_ctx, 27))) throw new FailedPredicateException(this, "precpred(_ctx, 27)");
 						setState(1515);
 						_la = _input.LA(1);
 						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << LessThan) | (1L << MoreThan) | (1L << LessThanEquals) | (1L << GreaterThanEquals))) != 0)) ) {
@@ -12215,7 +12215,7 @@ public class TypeScriptParser extends TypeScriptParserBase {
 							consume();
 						}
 						setState(1516);
-						singleExpression(27);
+						singleExpression(28);
 						}
 						break;
 					case 5:
@@ -12223,11 +12223,11 @@ public class TypeScriptParser extends TypeScriptParserBase {
 						_localctx = new InstanceofExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(1517);
-						if (!(precpred(_ctx, 25))) throw new FailedPredicateException(this, "precpred(_ctx, 25)");
+						if (!(precpred(_ctx, 26))) throw new FailedPredicateException(this, "precpred(_ctx, 26)");
 						setState(1518);
 						match(Instanceof);
 						setState(1519);
-						singleExpression(26);
+						singleExpression(27);
 						}
 						break;
 					case 6:
@@ -12235,11 +12235,11 @@ public class TypeScriptParser extends TypeScriptParserBase {
 						_localctx = new InExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(1520);
-						if (!(precpred(_ctx, 24))) throw new FailedPredicateException(this, "precpred(_ctx, 24)");
+						if (!(precpred(_ctx, 25))) throw new FailedPredicateException(this, "precpred(_ctx, 25)");
 						setState(1521);
 						match(In);
 						setState(1522);
-						singleExpression(25);
+						singleExpression(26);
 						}
 						break;
 					case 7:
@@ -12247,7 +12247,7 @@ public class TypeScriptParser extends TypeScriptParserBase {
 						_localctx = new EqualityExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(1523);
-						if (!(precpred(_ctx, 23))) throw new FailedPredicateException(this, "precpred(_ctx, 23)");
+						if (!(precpred(_ctx, 24))) throw new FailedPredicateException(this, "precpred(_ctx, 24)");
 						setState(1524);
 						_la = _input.LA(1);
 						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << Equals_) | (1L << NotEquals) | (1L << IdentityEquals) | (1L << IdentityNotEquals))) != 0)) ) {
@@ -12259,7 +12259,7 @@ public class TypeScriptParser extends TypeScriptParserBase {
 							consume();
 						}
 						setState(1525);
-						singleExpression(24);
+						singleExpression(25);
 						}
 						break;
 					case 8:
@@ -12267,11 +12267,11 @@ public class TypeScriptParser extends TypeScriptParserBase {
 						_localctx = new BitAndExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(1526);
-						if (!(precpred(_ctx, 22))) throw new FailedPredicateException(this, "precpred(_ctx, 22)");
+						if (!(precpred(_ctx, 23))) throw new FailedPredicateException(this, "precpred(_ctx, 23)");
 						setState(1527);
 						match(BitAnd);
 						setState(1528);
-						singleExpression(23);
+						singleExpression(24);
 						}
 						break;
 					case 9:
@@ -12279,11 +12279,11 @@ public class TypeScriptParser extends TypeScriptParserBase {
 						_localctx = new BitXOrExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(1529);
-						if (!(precpred(_ctx, 21))) throw new FailedPredicateException(this, "precpred(_ctx, 21)");
+						if (!(precpred(_ctx, 22))) throw new FailedPredicateException(this, "precpred(_ctx, 22)");
 						setState(1530);
 						match(BitXOr);
 						setState(1531);
-						singleExpression(22);
+						singleExpression(23);
 						}
 						break;
 					case 10:
@@ -12291,11 +12291,11 @@ public class TypeScriptParser extends TypeScriptParserBase {
 						_localctx = new BitOrExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(1532);
-						if (!(precpred(_ctx, 20))) throw new FailedPredicateException(this, "precpred(_ctx, 20)");
+						if (!(precpred(_ctx, 21))) throw new FailedPredicateException(this, "precpred(_ctx, 21)");
 						setState(1533);
 						match(BitOr);
 						setState(1534);
-						singleExpression(21);
+						singleExpression(22);
 						}
 						break;
 					case 11:
@@ -12303,11 +12303,11 @@ public class TypeScriptParser extends TypeScriptParserBase {
 						_localctx = new LogicalAndExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(1535);
-						if (!(precpred(_ctx, 19))) throw new FailedPredicateException(this, "precpred(_ctx, 19)");
+						if (!(precpred(_ctx, 20))) throw new FailedPredicateException(this, "precpred(_ctx, 20)");
 						setState(1536);
 						match(And);
 						setState(1537);
-						singleExpression(20);
+						singleExpression(21);
 						}
 						break;
 					case 12:
@@ -12315,11 +12315,11 @@ public class TypeScriptParser extends TypeScriptParserBase {
 						_localctx = new LogicalOrExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(1538);
-						if (!(precpred(_ctx, 18))) throw new FailedPredicateException(this, "precpred(_ctx, 18)");
+						if (!(precpred(_ctx, 19))) throw new FailedPredicateException(this, "precpred(_ctx, 19)");
 						setState(1539);
 						match(Or);
 						setState(1540);
-						singleExpression(19);
+						singleExpression(20);
 						}
 						break;
 					case 13:
@@ -12327,7 +12327,7 @@ public class TypeScriptParser extends TypeScriptParserBase {
 						_localctx = new TernaryExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(1541);
-						if (!(precpred(_ctx, 17))) throw new FailedPredicateException(this, "precpred(_ctx, 17)");
+						if (!(precpred(_ctx, 18))) throw new FailedPredicateException(this, "precpred(_ctx, 18)");
 						setState(1542);
 						match(QuestionMark);
 						setState(1543);
@@ -12335,7 +12335,7 @@ public class TypeScriptParser extends TypeScriptParserBase {
 						setState(1544);
 						match(Colon);
 						setState(1545);
-						singleExpression(18);
+						singleExpression(19);
 						}
 						break;
 					case 14:
@@ -12343,11 +12343,11 @@ public class TypeScriptParser extends TypeScriptParserBase {
 						_localctx = new AssignmentExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(1547);
-						if (!(precpred(_ctx, 16))) throw new FailedPredicateException(this, "precpred(_ctx, 16)");
+						if (!(precpred(_ctx, 17))) throw new FailedPredicateException(this, "precpred(_ctx, 17)");
 						setState(1548);
 						match(Assign);
 						setState(1549);
-						singleExpression(17);
+						singleExpression(18);
 						}
 						break;
 					case 15:
@@ -12355,11 +12355,11 @@ public class TypeScriptParser extends TypeScriptParserBase {
 						_localctx = new AssignmentOperatorExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(1550);
-						if (!(precpred(_ctx, 15))) throw new FailedPredicateException(this, "precpred(_ctx, 15)");
+						if (!(precpred(_ctx, 16))) throw new FailedPredicateException(this, "precpred(_ctx, 16)");
 						setState(1551);
 						assignmentOperator();
 						setState(1552);
-						singleExpression(16);
+						singleExpression(17);
 						}
 						break;
 					case 16:
@@ -12367,7 +12367,7 @@ public class TypeScriptParser extends TypeScriptParserBase {
 						_localctx = new MemberIndexExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(1554);
-						if (!(precpred(_ctx, 44))) throw new FailedPredicateException(this, "precpred(_ctx, 44)");
+						if (!(precpred(_ctx, 45))) throw new FailedPredicateException(this, "precpred(_ctx, 45)");
 						setState(1555);
 						match(OpenBracket);
 						setState(1556);
@@ -12381,7 +12381,7 @@ public class TypeScriptParser extends TypeScriptParserBase {
 						_localctx = new MemberDotExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(1559);
-						if (!(precpred(_ctx, 43))) throw new FailedPredicateException(this, "precpred(_ctx, 43)");
+						if (!(precpred(_ctx, 44))) throw new FailedPredicateException(this, "precpred(_ctx, 44)");
 						setState(1560);
 						match(Dot);
 						setState(1561);
@@ -12403,7 +12403,7 @@ public class TypeScriptParser extends TypeScriptParserBase {
 						_localctx = new ArgumentsExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(1565);
-						if (!(precpred(_ctx, 42))) throw new FailedPredicateException(this, "precpred(_ctx, 42)");
+						if (!(precpred(_ctx, 43))) throw new FailedPredicateException(this, "precpred(_ctx, 43)");
 						setState(1566);
 						arguments();
 						}
@@ -12413,7 +12413,7 @@ public class TypeScriptParser extends TypeScriptParserBase {
 						_localctx = new PostIncrementExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(1567);
-						if (!(precpred(_ctx, 40))) throw new FailedPredicateException(this, "precpred(_ctx, 40)");
+						if (!(precpred(_ctx, 41))) throw new FailedPredicateException(this, "precpred(_ctx, 41)");
 						setState(1568);
 						if (!(this.notLineTerminator())) throw new FailedPredicateException(this, "this.notLineTerminator()");
 						setState(1569);
@@ -12425,7 +12425,7 @@ public class TypeScriptParser extends TypeScriptParserBase {
 						_localctx = new PostDecreaseExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(1570);
-						if (!(precpred(_ctx, 39))) throw new FailedPredicateException(this, "precpred(_ctx, 39)");
+						if (!(precpred(_ctx, 40))) throw new FailedPredicateException(this, "precpred(_ctx, 40)");
 						setState(1571);
 						if (!(this.notLineTerminator())) throw new FailedPredicateException(this, "this.notLineTerminator()");
 						setState(1572);
@@ -12437,7 +12437,7 @@ public class TypeScriptParser extends TypeScriptParserBase {
 						_localctx = new TemplateStringExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(1573);
-						if (!(precpred(_ctx, 14))) throw new FailedPredicateException(this, "precpred(_ctx, 14)");
+						if (!(precpred(_ctx, 15))) throw new FailedPredicateException(this, "precpred(_ctx, 15)");
 						setState(1574);
 						match(TemplateStringLiteral);
 						}
@@ -12447,7 +12447,7 @@ public class TypeScriptParser extends TypeScriptParserBase {
 						_localctx = new CastAsExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(1575);
-						if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
+						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
 						setState(1576);
 						match(As);
 						setState(1577);
@@ -13640,53 +13640,53 @@ public class TypeScriptParser extends TypeScriptParserBase {
 	private boolean singleExpression_sempred(SingleExpressionContext _localctx, int predIndex) {
 		switch (predIndex) {
 		case 14:
-			return precpred(_ctx, 29);
+			return precpred(_ctx, 30);
 		case 15:
-			return precpred(_ctx, 28);
+			return precpred(_ctx, 29);
 		case 16:
-			return precpred(_ctx, 27);
+			return precpred(_ctx, 28);
 		case 17:
-			return precpred(_ctx, 26);
+			return precpred(_ctx, 27);
 		case 18:
-			return precpred(_ctx, 25);
+			return precpred(_ctx, 26);
 		case 19:
-			return precpred(_ctx, 24);
+			return precpred(_ctx, 25);
 		case 20:
-			return precpred(_ctx, 23);
+			return precpred(_ctx, 24);
 		case 21:
-			return precpred(_ctx, 22);
+			return precpred(_ctx, 23);
 		case 22:
-			return precpred(_ctx, 21);
+			return precpred(_ctx, 22);
 		case 23:
-			return precpred(_ctx, 20);
+			return precpred(_ctx, 21);
 		case 24:
-			return precpred(_ctx, 19);
+			return precpred(_ctx, 20);
 		case 25:
-			return precpred(_ctx, 18);
+			return precpred(_ctx, 19);
 		case 26:
-			return precpred(_ctx, 17);
+			return precpred(_ctx, 18);
 		case 27:
-			return precpred(_ctx, 16);
+			return precpred(_ctx, 17);
 		case 28:
-			return precpred(_ctx, 15);
+			return precpred(_ctx, 16);
 		case 29:
-			return precpred(_ctx, 44);
+			return precpred(_ctx, 45);
 		case 30:
-			return precpred(_ctx, 43);
+			return precpred(_ctx, 44);
 		case 31:
-			return precpred(_ctx, 42);
+			return precpred(_ctx, 43);
 		case 32:
-			return precpred(_ctx, 40);
+			return precpred(_ctx, 41);
 		case 33:
 			return this.notLineTerminator();
 		case 34:
-			return precpred(_ctx, 39);
+			return precpred(_ctx, 40);
 		case 35:
 			return this.notLineTerminator();
 		case 36:
-			return precpred(_ctx, 14);
+			return precpred(_ctx, 15);
 		case 37:
-			return precpred(_ctx, 1);
+			return precpred(_ctx, 2);
 		}
 		return true;
 	}
@@ -13796,13 +13796,13 @@ public class TypeScriptParser extends TypeScriptParserBase {
 		"~\3~\5~\u0591\n~\3\177\3\177\5\177\u0595\n\177\3\177\3\177\5\177\u0599"+
 		"\n\177\3\177\3\177\5\177\u059d\n\177\3\177\3\177\3\177\3\177\3\u0080\3"+
 		"\u0080\3\u0080\7\u0080\u05a6\n\u0080\f\u0080\16\u0080\u05a9\13\u0080\3"+
-		"\u0081\3\u0081\3\u0081\3\u0081\3\u0081\5\u0081\u05b0\n\u0081\3\u0081\3"+
-		"\u0081\3\u0081\3\u0081\5\u0081\u05b6\n\u0081\3\u0081\5\u0081\u05b9\n\u0081"+
+		"\u0081\3\u0081\3\u0081\3\u0081\5\u0081\u05af\n\u0081\3\u0081\3\u0081\3"+
+		"\u0081\3\u0081\5\u0081\u05b5\n\u0081\3\u0081\5\u0081\u05b8\n\u0081\3\u0081"+
 		"\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081"+
 		"\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081"+
-		"\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081\5\u0081\u05d4"+
-		"\n\u0081\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081"+
-		"\3\u0081\3\u0081\5\u0081\u05e0\n\u0081\5\u0081\u05e2\n\u0081\3\u0081\3"+
+		"\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081\5\u0081\u05d3\n\u0081"+
+		"\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081"+
+		"\3\u0081\5\u0081\u05df\n\u0081\3\u0081\5\u0081\u05e2\n\u0081\3\u0081\3"+
 		"\u0081\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081"+
 		"\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081"+
 		"\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081\3\u0081"+
@@ -14271,57 +14271,57 @@ public class TypeScriptParser extends TypeScriptParserBase {
 		"\u0081\2\u05a3\u05a4\7\r\2\2\u05a4\u05a6\5\u0100\u0081\2\u05a5\u05a3\3"+
 		"\2\2\2\u05a6\u05a9\3\2\2\2\u05a7\u05a5\3\2\2\2\u05a7\u05a8\3\2\2\2\u05a8"+
 		"\u00ff\3\2\2\2\u05a9\u05a7\3\2\2\2\u05aa\u05ab\b\u0081\1\2\u05ab\u05e2"+
-		"\5\u00fc\177\2\u05ac\u05e2\5\u0104\u0083\2\u05ad\u05af\7]\2\2\u05ae\u05b0"+
-		"\7}\2\2\u05af\u05ae\3\2\2\2\u05af\u05b0\3\2\2\2\u05b0\u05b1\3\2\2\2\u05b1"+
-		"\u05e2\5\u00c2b\2\u05b2\u05b3\7E\2\2\u05b3\u05b5\5\u0100\u0081\2\u05b4"+
-		"\u05b6\5\16\b\2\u05b5\u05b4\3\2\2\2\u05b5\u05b6\3\2\2\2\u05b6\u05b8\3"+
-		"\2\2\2\u05b7\u05b9\5\u00f6|\2\u05b8\u05b7\3\2\2\2\u05b8\u05b9\3\2\2\2"+
-		"\u05b9\u05e2\3\2\2\2\u05ba\u05bb\7V\2\2\u05bb\u05e2\5\u0100\u0081(\u05bc"+
-		"\u05bd\7J\2\2\u05bd\u05e2\5\u0100\u0081\'\u05be\u05bf\7B\2\2\u05bf\u05e2"+
-		"\5\u0100\u0081&\u05c0\u05c1\7\23\2\2\u05c1\u05e2\5\u0100\u0081%\u05c2"+
-		"\u05c3\7\24\2\2\u05c3\u05e2\5\u0100\u0081$\u05c4\u05c5\7\25\2\2\u05c5"+
-		"\u05e2\5\u0100\u0081#\u05c6\u05c7\7\26\2\2\u05c7\u05e2\5\u0100\u0081\""+
-		"\u05c8\u05c9\7\27\2\2\u05c9\u05e2\5\u0100\u0081!\u05ca\u05cb\7\30\2\2"+
-		"\u05cb\u05e2\5\u0100\u0081 \u05cc\u05e2\5\u00d8m\2\u05cd\u05e2\5\u00d4"+
-		"k\2\u05ce\u05e2\5\u00d2j\2\u05cf\u05e2\5\u00a2R\2\u05d0\u05e2\7Q\2\2\u05d1"+
-		"\u05d3\5\u0110\u0089\2\u05d2\u05d4\5\u0100\u0081\2\u05d3\u05d2\3\2\2\2"+
-		"\u05d3\u05d4\3\2\2\2\u05d4\u05e2\3\2\2\2\u05d5\u05e2\7`\2\2\u05d6\u05e2"+
-		"\5\u010c\u0087\2\u05d7\u05e2\5\u00e6t\2\u05d8\u05e2\5\u00ecw\2\u05d9\u05da"+
-		"\7\b\2\2\u05da\u05db\5\u00fe\u0080\2\u05db\u05dc\7\t\2\2\u05dc\u05e2\3"+
-		"\2\2\2\u05dd\u05df\5\16\b\2\u05de\u05e0\5\u00fe\u0080\2\u05df\u05de\3"+
-		"\2\2\2\u05df\u05e0\3\2\2\2\u05e0\u05e2\3\2\2\2\u05e1\u05aa\3\2\2\2\u05e1"+
-		"\u05ac\3\2\2\2\u05e1\u05ad\3\2\2\2\u05e1\u05b2\3\2\2\2\u05e1\u05ba\3\2"+
-		"\2\2\u05e1\u05bc\3\2\2\2\u05e1\u05be\3\2\2\2\u05e1\u05c0\3\2\2\2\u05e1"+
-		"\u05c2\3\2\2\2\u05e1\u05c4\3\2\2\2\u05e1\u05c6\3\2\2\2\u05e1\u05c8\3\2"+
-		"\2\2\u05e1\u05ca\3\2\2\2\u05e1\u05cc\3\2\2\2\u05e1\u05cd\3\2\2\2\u05e1"+
-		"\u05ce\3\2\2\2\u05e1\u05cf\3\2\2\2\u05e1\u05d0\3\2\2\2\u05e1\u05d1\3\2"+
-		"\2\2\u05e1\u05d5\3\2\2\2\u05e1\u05d6\3\2\2\2\u05e1\u05d7\3\2\2\2\u05e1"+
-		"\u05d8\3\2\2\2\u05e1\u05d9\3\2\2\2\u05e1\u05dd\3\2\2\2\u05e2\u062e\3\2"+
-		"\2\2\u05e3\u05e4\f\37\2\2\u05e4\u05e5\t\b\2\2\u05e5\u062d\5\u0100\u0081"+
-		" \u05e6\u05e7\f\36\2\2\u05e7\u05e8\t\t\2\2\u05e8\u062d\5\u0100\u0081\37"+
-		"\u05e9\u05ea\f\35\2\2\u05ea\u05eb\t\n\2\2\u05eb\u062d\5\u0100\u0081\36"+
-		"\u05ec\u05ed\f\34\2\2\u05ed\u05ee\t\13\2\2\u05ee\u062d\5\u0100\u0081\35"+
-		"\u05ef\u05f0\f\33\2\2\u05f0\u05f1\7A\2\2\u05f1\u062d\5\u0100\u0081\34"+
-		"\u05f2\u05f3\f\32\2\2\u05f3\u05f4\7W\2\2\u05f4\u062d\5\u0100\u0081\33"+
-		"\u05f5\u05f6\f\31\2\2\u05f6\u05f7\t\f\2\2\u05f7\u062d\5\u0100\u0081\32"+
-		"\u05f8\u05f9\f\30\2\2\u05f9\u05fa\7\'\2\2\u05fa\u062d\5\u0100\u0081\31"+
-		"\u05fb\u05fc\f\27\2\2\u05fc\u05fd\7(\2\2\u05fd\u062d\5\u0100\u0081\30"+
-		"\u05fe\u05ff\f\26\2\2\u05ff\u0600\7)\2\2\u0600\u062d\5\u0100\u0081\27"+
-		"\u0601\u0602\f\25\2\2\u0602\u0603\7*\2\2\u0603\u062d\5\u0100\u0081\26"+
-		"\u0604\u0605\f\24\2\2\u0605\u0606\7+\2\2\u0606\u062d\5\u0100\u0081\25"+
-		"\u0607\u0608\f\23\2\2\u0608\u0609\7\17\2\2\u0609\u060a\5\u0100\u0081\2"+
-		"\u060a\u060b\7\20\2\2\u060b\u060c\5\u0100\u0081\24\u060c\u062d\3\2\2\2"+
-		"\u060d\u060e\f\22\2\2\u060e\u060f\7\16\2\2\u060f\u062d\5\u0100\u0081\23"+
-		"\u0610\u0611\f\21\2\2\u0611\u0612\5\u010a\u0086\2\u0612\u0613\5\u0100"+
-		"\u0081\22\u0613\u062d\3\2\2\2\u0614\u0615\f.\2\2\u0615\u0616\7\6\2\2\u0616"+
-		"\u0617\5\u00fe\u0080\2\u0617\u0618\7\7\2\2\u0618\u062d\3\2\2\2\u0619\u061a"+
-		"\f-\2\2\u061a\u061b\7\22\2\2\u061b\u061d\5\u0110\u0089\2\u061c\u061e\5"+
-		"\36\20\2\u061d\u061c\3\2\2\2\u061d\u061e\3\2\2\2\u061e\u062d\3\2\2\2\u061f"+
-		"\u0620\f,\2\2\u0620\u062d\5\u00f6|\2\u0621\u0622\f*\2\2\u0622\u0623\6"+
-		"\u0081#\2\u0623\u062d\7\23\2\2\u0624\u0625\f)\2\2\u0625\u0626\6\u0081"+
-		"%\2\u0626\u062d\7\24\2\2\u0627\u0628\f\20\2\2\u0628\u062d\7\177\2\2\u0629"+
-		"\u062a\f\3\2\2\u062a\u062b\7Y\2\2\u062b\u062d\5\u0102\u0082\2\u062c\u05e3"+
-		"\3\2\2\2\u062c\u05e6\3\2\2\2\u062c\u05e9\3\2\2\2\u062c\u05ec\3\2\2\2\u062c"+
+		"\5\u0104\u0083\2\u05ac\u05ae\7]\2\2\u05ad\u05af\7}\2\2\u05ae\u05ad\3\2"+
+		"\2\2\u05ae\u05af\3\2\2\2\u05af\u05b0\3\2\2\2\u05b0\u05e2\5\u00c2b\2\u05b1"+
+		"\u05b2\7E\2\2\u05b2\u05b4\5\u0100\u0081\2\u05b3\u05b5\5\16\b\2\u05b4\u05b3"+
+		"\3\2\2\2\u05b4\u05b5\3\2\2\2\u05b5\u05b7\3\2\2\2\u05b6\u05b8\5\u00f6|"+
+		"\2\u05b7\u05b6\3\2\2\2\u05b7\u05b8\3\2\2\2\u05b8\u05e2\3\2\2\2\u05b9\u05ba"+
+		"\7V\2\2\u05ba\u05e2\5\u0100\u0081)\u05bb\u05bc\7J\2\2\u05bc\u05e2\5\u0100"+
+		"\u0081(\u05bd\u05be\7B\2\2\u05be\u05e2\5\u0100\u0081\'\u05bf\u05c0\7\23"+
+		"\2\2\u05c0\u05e2\5\u0100\u0081&\u05c1\u05c2\7\24\2\2\u05c2\u05e2\5\u0100"+
+		"\u0081%\u05c3\u05c4\7\25\2\2\u05c4\u05e2\5\u0100\u0081$\u05c5\u05c6\7"+
+		"\26\2\2\u05c6\u05e2\5\u0100\u0081#\u05c7\u05c8\7\27\2\2\u05c8\u05e2\5"+
+		"\u0100\u0081\"\u05c9\u05ca\7\30\2\2\u05ca\u05e2\5\u0100\u0081!\u05cb\u05e2"+
+		"\5\u00d8m\2\u05cc\u05e2\5\u00d4k\2\u05cd\u05e2\5\u00d2j\2\u05ce\u05e2"+
+		"\5\u00a2R\2\u05cf\u05e2\7Q\2\2\u05d0\u05d2\5\u0110\u0089\2\u05d1\u05d3"+
+		"\5\u0100\u0081\2\u05d2\u05d1\3\2\2\2\u05d2\u05d3\3\2\2\2\u05d3\u05e2\3"+
+		"\2\2\2\u05d4\u05e2\7`\2\2\u05d5\u05e2\5\u010c\u0087\2\u05d6\u05e2\5\u00e6"+
+		"t\2\u05d7\u05e2\5\u00ecw\2\u05d8\u05d9\7\b\2\2\u05d9\u05da\5\u00fe\u0080"+
+		"\2\u05da\u05db\7\t\2\2\u05db\u05e2\3\2\2\2\u05dc\u05de\5\16\b\2\u05dd"+
+		"\u05df\5\u00fe\u0080\2\u05de\u05dd\3\2\2\2\u05de\u05df\3\2\2\2\u05df\u05e2"+
+		"\3\2\2\2\u05e0\u05e2\5\u00fc\177\2\u05e1\u05aa\3\2\2\2\u05e1\u05ac\3\2"+
+		"\2\2\u05e1\u05b1\3\2\2\2\u05e1\u05b9\3\2\2\2\u05e1\u05bb\3\2\2\2\u05e1"+
+		"\u05bd\3\2\2\2\u05e1\u05bf\3\2\2\2\u05e1\u05c1\3\2\2\2\u05e1\u05c3\3\2"+
+		"\2\2\u05e1\u05c5\3\2\2\2\u05e1\u05c7\3\2\2\2\u05e1\u05c9\3\2\2\2\u05e1"+
+		"\u05cb\3\2\2\2\u05e1\u05cc\3\2\2\2\u05e1\u05cd\3\2\2\2\u05e1\u05ce\3\2"+
+		"\2\2\u05e1\u05cf\3\2\2\2\u05e1\u05d0\3\2\2\2\u05e1\u05d4\3\2\2\2\u05e1"+
+		"\u05d5\3\2\2\2\u05e1\u05d6\3\2\2\2\u05e1\u05d7\3\2\2\2\u05e1\u05d8\3\2"+
+		"\2\2\u05e1\u05dc\3\2\2\2\u05e1\u05e0\3\2\2\2\u05e2\u062e\3\2\2\2\u05e3"+
+		"\u05e4\f \2\2\u05e4\u05e5\t\b\2\2\u05e5\u062d\5\u0100\u0081!\u05e6\u05e7"+
+		"\f\37\2\2\u05e7\u05e8\t\t\2\2\u05e8\u062d\5\u0100\u0081 \u05e9\u05ea\f"+
+		"\36\2\2\u05ea\u05eb\t\n\2\2\u05eb\u062d\5\u0100\u0081\37\u05ec\u05ed\f"+
+		"\35\2\2\u05ed\u05ee\t\13\2\2\u05ee\u062d\5\u0100\u0081\36\u05ef\u05f0"+
+		"\f\34\2\2\u05f0\u05f1\7A\2\2\u05f1\u062d\5\u0100\u0081\35\u05f2\u05f3"+
+		"\f\33\2\2\u05f3\u05f4\7W\2\2\u05f4\u062d\5\u0100\u0081\34\u05f5\u05f6"+
+		"\f\32\2\2\u05f6\u05f7\t\f\2\2\u05f7\u062d\5\u0100\u0081\33\u05f8\u05f9"+
+		"\f\31\2\2\u05f9\u05fa\7\'\2\2\u05fa\u062d\5\u0100\u0081\32\u05fb\u05fc"+
+		"\f\30\2\2\u05fc\u05fd\7(\2\2\u05fd\u062d\5\u0100\u0081\31\u05fe\u05ff"+
+		"\f\27\2\2\u05ff\u0600\7)\2\2\u0600\u062d\5\u0100\u0081\30\u0601\u0602"+
+		"\f\26\2\2\u0602\u0603\7*\2\2\u0603\u062d\5\u0100\u0081\27\u0604\u0605"+
+		"\f\25\2\2\u0605\u0606\7+\2\2\u0606\u062d\5\u0100\u0081\26\u0607\u0608"+
+		"\f\24\2\2\u0608\u0609\7\17\2\2\u0609\u060a\5\u0100\u0081\2\u060a\u060b"+
+		"\7\20\2\2\u060b\u060c\5\u0100\u0081\25\u060c\u062d\3\2\2\2\u060d\u060e"+
+		"\f\23\2\2\u060e\u060f\7\16\2\2\u060f\u062d\5\u0100\u0081\24\u0610\u0611"+
+		"\f\22\2\2\u0611\u0612\5\u010a\u0086\2\u0612\u0613\5\u0100\u0081\23\u0613"+
+		"\u062d\3\2\2\2\u0614\u0615\f/\2\2\u0615\u0616\7\6\2\2\u0616\u0617\5\u00fe"+
+		"\u0080\2\u0617\u0618\7\7\2\2\u0618\u062d\3\2\2\2\u0619\u061a\f.\2\2\u061a"+
+		"\u061b\7\22\2\2\u061b\u061d\5\u0110\u0089\2\u061c\u061e\5\36\20\2\u061d"+
+		"\u061c\3\2\2\2\u061d\u061e\3\2\2\2\u061e\u062d\3\2\2\2\u061f\u0620\f-"+
+		"\2\2\u0620\u062d\5\u00f6|\2\u0621\u0622\f+\2\2\u0622\u0623\6\u0081#\2"+
+		"\u0623\u062d\7\23\2\2\u0624\u0625\f*\2\2\u0625\u0626\6\u0081%\2\u0626"+
+		"\u062d\7\24\2\2\u0627\u0628\f\21\2\2\u0628\u062d\7\177\2\2\u0629\u062a"+
+		"\f\4\2\2\u062a\u062b\7Y\2\2\u062b\u062d\5\u0102\u0082\2\u062c\u05e3\3"+
+		"\2\2\2\u062c\u05e6\3\2\2\2\u062c\u05e9\3\2\2\2\u062c\u05ec\3\2\2\2\u062c"+
 		"\u05ef\3\2\2\2\u062c\u05f2\3\2\2\2\u062c\u05f5\3\2\2\2\u062c\u05f8\3\2"+
 		"\2\2\u062c\u05fb\3\2\2\2\u062c\u05fe\3\2\2\2\u062c\u0601\3\2\2\2\u062c"+
 		"\u0604\3\2\2\2\u062c\u0607\3\2\2\2\u062c\u060d\3\2\2\2\u062c\u0610\3\2"+
@@ -14369,8 +14369,8 @@ public class TypeScriptParser extends TypeScriptParserBase {
 		"\u04a1\u04a4\u04aa\u04af\u04b9\u04bd\u04ca\u04ce\u04db\u04df\u04e8\u04f4"+
 		"\u04f9\u0500\u0502\u0505\u0508\u050c\u050f\u0513\u0519\u051e\u0522\u052a"+
 		"\u052f\u0533\u0537\u053a\u0542\u0545\u0548\u055b\u0561\u056b\u056e\u0578"+
-		"\u057d\u057f\u0588\u058c\u0590\u0594\u0598\u059c\u05a7\u05af\u05b5\u05b8"+
-		"\u05d3\u05df\u05e1\u061d\u062c\u062e\u0634\u0637\u063a\u063e\u0646\u0649"+
+		"\u057d\u057f\u0588\u058c\u0590\u0594\u0598\u059c\u05a7\u05ae\u05b4\u05b7"+
+		"\u05d2\u05de\u05e1\u061d\u062c\u062e\u0634\u0637\u063a\u063e\u0646\u0649"+
 		"\u0650\u065a\u0660\u0667\u0675";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());

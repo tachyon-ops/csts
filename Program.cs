@@ -52,23 +52,26 @@ namespace prog_lang
 				var lexer = new TypeScriptLexer(stream);
 				var tokenStream = new CommonTokenStream(lexer);
 				var parser = new TypeScriptParser(tokenStream);
+				IParseTree tree = parser.program();
+				//Console.WriteLine("parse tree (LISP style): \n" + tree.ToStringTree(parser));
+				parser.RemoveErrorListeners();
+				parser.AddErrorListener(new ThrowingErrorListener<IToken>());
 
+				IRunner runner;
 				if (operation == Operation.INTERPRETER)
 				{
-					IParseTree tree = parser.program();
-					//Console.WriteLine("parse tree (LISP style): \n" + tree.ToStringTree(parser));
-
-					parser.program();
-					parser.RemoveErrorListeners();
-					parser.AddErrorListener(new ThrowingErrorListener<IToken>());
-
-
 					Console.WriteLine("Interpreter triggered");
-					TypeScriptParserListener expressionWalker = new TypeScriptParserListener();
-					ParseTreeWalker walker = new ParseTreeWalker();
-					// Walker
-					walker.Walk(expressionWalker, tree);
+					runner = new Interpreter();
 				}
+				else
+				{
+					runner = new Compiler();
+				}
+
+				TypeScriptParserListener expressionWalker = new TypeScriptParserListener(runner);
+				ParseTreeWalker walker = new ParseTreeWalker();
+				// Walker
+				walker.Walk(expressionWalker, tree);
 
 			}
 			catch (Exception ex)

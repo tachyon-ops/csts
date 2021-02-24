@@ -13,29 +13,27 @@ namespace TypeScriptNative.src.AST
 		public static Program ProgramToAST(ParserRuleContext ctx, bool considerPosition = false)
 		{
 			List<Statement> statements = new List<Statement>();
-
-			Console.WriteLine("Program toAST: " + ctx.ChildCount + " type: " + ctx.GetType());
-
-
+			//Console.WriteLine("Program toAST: " + ctx.ChildCount + " type: " + ctx.GetType());
 			foreach (var c in ctx.children)
 			{
-
 				if (c is ParserRuleContext)
 				{
-					int ruleIndex = ((ParserRuleContext)c).RuleIndex;
+					var child = (ParserRuleContext)c;
+					int ruleIndex = child.RuleIndex;
 					string ruleName = TypeScriptParser.ruleNames[ruleIndex];
 					Console.WriteLine(ruleName);
-
 					if (ruleName == "sourceElements")
 					{
-						SourceElementsToAST((ParserRuleContext)c);
+						statements.AddRange(SourceElementsToAST(child));
 					}
 				}
 				else
 					Console.WriteLine(c.ToString());
 				//statements.Add(new Statement(child));
 			}
-			return new Program(statements);
+			Program program = new Program();
+			program.AddStatements(statements);
+			return program;
 		}
 
 		public static List<Statement> SourceElementsToAST(ParserRuleContext ctx)
@@ -46,7 +44,7 @@ namespace TypeScriptNative.src.AST
 			{
 				int ruleIndex = ((ParserRuleContext)c).RuleIndex;
 				string ruleName = TypeScriptParser.ruleNames[ruleIndex];
-				Console.WriteLine(ruleName);
+				//Console.WriteLine(ruleName);
 
 				if (ruleName == "sourceElement")
 				{
@@ -64,7 +62,7 @@ namespace TypeScriptNative.src.AST
 			{
 				int ruleIndex = ((ParserRuleContext)c).RuleIndex;
 				string ruleName = TypeScriptParser.ruleNames[ruleIndex];
-				Console.WriteLine(ruleName);
+				//Console.WriteLine(ruleName);
 
 				if (c is ParserRuleContext && ruleName == "statement")
 				{
@@ -78,7 +76,7 @@ namespace TypeScriptNative.src.AST
 		// Statement
 		public static Statement StatementToAST(ParserRuleContext ctx, bool considerPosition = false)
 		{
-			Console.WriteLine(ctx.GetType() + " children: " + ctx.ChildCount);
+			//Console.WriteLine(ctx.GetType() + " children: " + ctx.ChildCount);
 
 			if (ctx.ChildCount == 1)
 			{
@@ -143,14 +141,14 @@ namespace TypeScriptNative.src.AST
 		{
 			foreach (var c in ctx.children)
 			{
-				Console.WriteLine(c.GetType() + " val: " + c.GetText() + " children: " + c.ChildCount);
+				//Console.WriteLine(c.GetType() + " val: " + c.GetText() + " children: " + c.ChildCount);
 				if (c is ParserRuleContext)
 				{
 					var child = (ParserRuleContext)c;
 
 					int ruleIndex = child.RuleIndex;
 					string ruleName = TypeScriptParser.ruleNames[ruleIndex];
-					Console.WriteLine("Function body ruleName: " + ruleName);
+					//Console.WriteLine("Function body ruleName: " + ruleName);
 
 					if (ruleName == "functionBody")
 					{
@@ -164,14 +162,14 @@ namespace TypeScriptNative.src.AST
 		{
 			foreach (var c in ctx.children)
 			{
-				Console.WriteLine(c.GetType() + " val: " + c.GetText() + " children: " + c.ChildCount);
+				//Console.WriteLine(c.GetType() + " val: " + c.GetText() + " children: " + c.ChildCount);
 				if (c is ParserRuleContext)
 				{
 					var child = (ParserRuleContext)c;
 
 					int ruleIndex = child.RuleIndex;
 					string ruleName = TypeScriptParser.ruleNames[ruleIndex];
-					Console.WriteLine("Function body > functionBody > ruleName: " + ruleName);
+					//Console.WriteLine("Function body > functionBody > ruleName: " + ruleName);
 
 					if (ruleName == "sourceElements")
 					{
@@ -290,9 +288,7 @@ namespace TypeScriptNative.src.AST
 					var child = (ParserRuleContext)c;
 					int ruleIndex = child.RuleIndex;
 					string ruleName = TypeScriptParser.ruleNames[ruleIndex];
-					//Console.WriteLine("Call Signature > Parameter List > Parameter > ParamIdentifierOrPattern " + ruleName);
-					Console.WriteLine("ruleName: " + ruleName);
-					Console.WriteLine("text: " + child.GetText());
+					//Console.WriteLine("ParamIdentifierOrPattern: " + ruleName + " >> " + child.GetText());
 					return child.GetText();
 				}
 			}
@@ -304,6 +300,8 @@ namespace TypeScriptNative.src.AST
 		{
 			//Console.WriteLine(ctx.GetType() + " children: " + ctx.ChildCount);
 
+			List<Expression> expressions = new List<Expression>();
+
 			foreach (var c in ctx.children)
 			{
 				//Console.WriteLine(c.GetType() + " val: " + c.GetText() + " children: " + c.ChildCount);
@@ -313,42 +311,127 @@ namespace TypeScriptNative.src.AST
 					var child = (ParserRuleContext)c;
 					int ruleIndex = child.RuleIndex;
 					string ruleName = TypeScriptParser.ruleNames[ruleIndex];
-					Console.WriteLine("ExpressionToAST - ruleName: " + ruleName);
-					Console.WriteLine("ExpressionToAST - text: " + child.GetText());
-					//return child.GetText();
-
+					Console.WriteLine("ExpressionToAST: " + ruleName + " >> " + child.GetText());
 					if (ruleName == "expressionSequence")
 					{
-						ExpressionSequenceToAST(child);
+						expressions.AddRange(ExpressionSequenceToAST(child));
+						Console.WriteLine(">>>>> expressions count: " + expressions.Count);
+						if (expressions.Count == 1) return expressions[0];
+						else Console.WriteLine("Expressions count is superior to 1");
 					}
+					else if (ruleName == "eos")
+						return null;
 				}
 			}
-			return new Expression();
+			throw new Exception("ExpressionToAST Exception > could not get ExpressionSequence");
 		}
 
-		public static void ExpressionSequenceToAST(ParserRuleContext ctx, bool considerPosition = false)
+		public static List<Expression> ExpressionSequenceToAST(ParserRuleContext ctx, bool considerPosition = false)
 		{
+			List<Expression> expressions = new List<Expression>();
 			foreach (var c in ctx.children)
 			{
-				//Console.WriteLine(c.GetType() + " val: " + c.GetText() + " children: " + c.ChildCount);
+				Console.WriteLine(c.GetType() + " val: " + c.GetText() + " children: " + c.ChildCount);
 
 				if (c is ParserRuleContext)
 				{
 					var child = (ParserRuleContext)c;
 					int ruleIndex = child.RuleIndex;
 					string ruleName = TypeScriptParser.ruleNames[ruleIndex];
-					Console.WriteLine("ExpressionToAST - ExpressionSequenceToAST - ruleName: " + ruleName);
-					Console.WriteLine("ExpressionToAST - ExpressionSequenceToAST - text: " + child.GetText());
-
+					Console.WriteLine("ExpressionSequenceToAST: " + ruleName + " >> " + child.GetText());
 					if (ruleName == "singleExpression")
 					{
-						SingleExpresionToAST(child);
+						Expression expression = SingleExpresionToAST(child);
+						Console.WriteLine(expression);
+						expressions.Add(expression);
 					}
 				}
 			}
+			return expressions;
+			//throw new Exception("ExpressionSequenceToAST Exception > could not return Single Expresion To AST");
 		}
 
-		public static void SingleExpresionToAST(ParserRuleContext ctx, bool considerPosition = false)
+		public static Expression SingleExpresionToAST(ParserRuleContext ctx, bool considerPosition = false)
+		{
+			List<Expression> expressions = new List<Expression>();
+			Console.WriteLine(">>>>> " + ctx.GetType() + " val: " + ctx.GetText() + " children: " + ctx.ChildCount);
+
+			if (ctx is TypeScriptParser.IdentifierNameContext)
+			{
+				Console.WriteLine("will return var reference!");
+				return new VarReference(ctx.GetText());
+			}
+
+			if (ctx is TypeScriptParser.LiteralContext)
+				return SingleExpresionToAST((ParserRuleContext)ctx.children[0]);
+			if (ctx is TypeScriptParser.NumericLiteralContext)
+				return new IntegerLiteral(ctx.GetText());
+
+			Expression left = null;
+			Expression right = null;
+			Operation operation = Operation.UNKNOWN;
+			foreach (var c in ctx.children)
+			{
+				if (c is ParserRuleContext)
+				{
+					var child = (ParserRuleContext)c;
+					int ruleIndex = child.RuleIndex;
+					string ruleName = TypeScriptParser.ruleNames[ruleIndex];
+					Console.WriteLine("SingleExpresion To AST: " + ruleName + " >> " + child.GetText());
+
+					if (ruleName == "identifierName")
+					{
+						var identifier = child.GetText();
+						left = new VarReference(identifier);
+					}
+					else if (ruleName == "singleExpression")
+					{
+						if (child.GetText().Contains("+"))
+						{
+							operation = Operation.ADDITION;
+							right = GetExpressionsToAST(child);
+						}
+						else
+						{
+							Console.WriteLine("CHILD COUNT: " + child.ChildCount);
+							if (child.ChildCount == 1)
+								return GetExpressionsToAST2(child);
+							else if (child.ChildCount > 1)
+							{
+								List<Expression> expressions2 = new List<Expression>();
+								foreach (var child2 in child.children)
+								{
+									Console.WriteLine("SingleExpresion To AST: " + child2.GetType() + " >> " + child2.GetText());
+									// OUTPUT:
+									// SingleExpresion To AST: Antlr4.Runtime.Tree.TerminalNodeImpl >> (
+									// SingleExpresion To AST: TypeScriptParser + ExpressionSequenceContext >> 10,20
+									// SingleExpresion To AST: Antlr4.Runtime.Tree.TerminalNodeImpl >> )
+									if (child2 is TypeScriptParser.ExpressionSequenceContext)
+									{
+										// TODO
+									}
+								}
+							}
+							else
+							{
+								throw new Exception("SingleExpresion To AST Exception in ruleName 'singleExpression' > is it a new operation?");
+							}
+						}
+					}
+				}
+			}
+			Console.WriteLine("expressions count: " + expressions.Count);
+			//Console.WriteLine("left: " + left.ToString());
+			//Console.WriteLine("right: " + right.ToString());
+			if (left != null && right != null)
+			{
+				if (operation == Operation.ADDITION)
+					return new SumExpression(left, right);
+			}
+			throw new Exception("Single Expresion To AST Exception > could not get left or right");
+		}
+
+		public static Expression GetExpressionsToAST2(ParserRuleContext ctx, bool considerPosition = false)
 		{
 			foreach (var c in ctx.children)
 			{
@@ -359,10 +442,37 @@ namespace TypeScriptNative.src.AST
 					var child = (ParserRuleContext)c;
 					int ruleIndex = child.RuleIndex;
 					string ruleName = TypeScriptParser.ruleNames[ruleIndex];
-					Console.WriteLine("ExpressionToAST - ExpressionSequenceToAST - SingleExpresionToAST - ruleName: " + ruleName);
-					Console.WriteLine("ExpressionToAST - ExpressionSequenceToAST - SingleExpresionToAST - text: " + child.GetText());
+					Console.WriteLine("GetExpressionsToAST2: " + ruleName + " >> " + child.GetText());
+					//if (ruleName == "singleExpression")
+					//{
+					//	//return SingleExpresionToAST(ctx);
+					//}
+					return SingleExpresionToAST(child);
 				}
 			}
+			throw new Exception("GetExpressionsToAST Exception > could not get expression");
+		}
+
+		public static Expression GetExpressionsToAST(ParserRuleContext ctx, bool considerPosition = false)
+		{
+			List<Expression> expressions = new List<Expression>();
+			foreach (var c in ctx.children)
+			{
+				//Console.WriteLine(c.GetType() + " val: " + c.GetText() + " children: " + c.ChildCount);
+
+				if (c is ParserRuleContext)
+				{
+					var child = (ParserRuleContext)c;
+					int ruleIndex = child.RuleIndex;
+					string ruleName = TypeScriptParser.ruleNames[ruleIndex];
+					Console.WriteLine("GetExpressionsToAST: " + ruleName + " >> " + child.GetText());
+					if (ruleName == "singleExpression")
+					{
+						return SingleExpresionToAST(ctx);
+					}
+				}
+			}
+			throw new Exception("GetExpressionsToAST Exception > could not get expression");
 		}
 	}
 

@@ -8,6 +8,8 @@ namespace TypeScriptNative.src
 {
 	using AST;
 
+
+
 	public class TypeScriptParserListener : IParseTreeListener
 	{
 		int forLevel = 0;
@@ -16,9 +18,11 @@ namespace TypeScriptNative.src
 
 		//private readonly Stack<ASTContext> ascentStack = new Stack<ASTContext>();
 
-		public TypeScriptParserListener()
+		IRunner runner;
+
+		public TypeScriptParserListener(IRunner runner = null)
 		{
-			// nothing
+			this.runner = runner;
 		}
 
 		public void EnterEveryRule(ParserRuleContext ctx)
@@ -30,7 +34,16 @@ namespace TypeScriptNative.src
 			bool keepRule = ctx.ChildCount > 1;
 			if (!keepRule) return;
 			Console.WriteLine("".PadLeft(forLevel + 4) + "Enter rule " + ruleName);
-			//printInfo("EnterEveryRule", ctx);
+			printInfo("EnterEveryRule", ctx);
+
+			//if (ruleName == "program")
+			//{
+			//	Program program = Mapping.ProgramToAST(ctx);
+			//	if (this.runner != null)
+			//	{
+			//		this.runner.Run(program);
+			//	}
+			//}
 		}
 
 		public void ExitEveryRule(ParserRuleContext ctx)
@@ -63,7 +76,13 @@ namespace TypeScriptNative.src
 				Console.WriteLine("\nExplore pre-AST (we can use this):");
 				ExploreAST(ctx);
 
-				Mapping.ProgramToAST(ctx);
+				//Mapping.ProgramToAST(ctx);
+
+				Program program = Mapping.ProgramToAST(ctx);
+				if (this.runner != null)
+				{
+					this.runner.Run(program);
+				}
 			}
 		}
 

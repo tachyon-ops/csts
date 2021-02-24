@@ -4,28 +4,38 @@ using System.Collections.Generic;
 namespace TypeScriptNative.src.AST
 {
 	// interface Node
-	interface INode { }
+	public interface INode { }
 
 	//
 	// TypeScript specific part
 	//
 
 	// data class SandyFile(val statements : List<Statement>) : Node
-	class Program : INode
+	public class Program : INode
 	{
-		List<Statement> elements;
-		public Program(List<Statement> elements)
+		public List<Statement> statements = new List<Statement>();
+		public Program()
 		{
-			this.elements = elements;
+
+		}
+
+		public void AddStatement(Statement element)
+		{
+			this.statements.Add(element);
+		}
+
+		public void AddStatements(List<Statement> elements)
+		{
+			this.statements.AddRange(elements);
 		}
 	}
 
-	class FunctionDeclaration : INode
+	public class FunctionDeclaration : INode
 	{
 
-		string functionName;
-		List<Parameter> parameters;
-		string type;
+		public string functionName;
+		public List<Parameter> parameters;
+		public string type;
 		public FunctionDeclaration(string functionName, List<Parameter> parameters, string type = null)
 		{
 			this.functionName = functionName;
@@ -35,17 +45,33 @@ namespace TypeScriptNative.src.AST
 		}
 	}
 
-	enum StatementType
+	public class Argument : INode
+	{
+		ArgumentType type;
+		string val;
+		public Argument(ArgumentType type, string val)
+		{
+			this.type = type;
+			this.val = val;
+		}
+	}
+
+	public enum ArgumentType
+	{
+		numericLiteral
+	}
+
+	public enum StatementType
 	{
 		RETURN,
 		SINGLE_EXPRESSION
 	}
 
 	// interface Statement : Node { }
-	class Statement : INode
+	public class Statement : INode
 	{
-		INode child;
-		StatementType type;
+		public INode child;
+		public StatementType type;
 		public Statement() { }
 		public Statement(INode child, StatementType type = StatementType.SINGLE_EXPRESSION)
 		{
@@ -54,27 +80,51 @@ namespace TypeScriptNative.src.AST
 		}
 	}
 
-	// interface Expression : Node { }
-	class Expression : INode
+	public enum Operation
 	{
-		public Expression() { }
+		UNKNOWN,
+		ADDITION
 	}
 
+	public interface Expression : INode { }
+	//class Expression : INode
+	//{
+	//	INode left;
+	//	INode right;
+	//	List<Expression> rightExpressions;
+	//	public Expression()
+	//	{
+	//		this.left = null;
+	//		this.right = null;
+	//	}
+	//	public Expression(INode left, INode right)
+	//	{
+	//		this.left = left;
+	//		this.right = right;
+	//	}
+	//	public Expression(INode left, List<Expression> rightExpressions)
+	//	{
+	//		this.left = left;
+	//		this.right = null;
+	//		this.rightExpressions = rightExpressions;
+	//	}
+	//}
+
 	// interface Type : Node { }
-	interface IType : INode { }
+	public interface IType : INode { }
 
 	//
 	// Types
 	//
 
 	// object DecimalType : Type
-	class NumberAST : IType
+	public class NumberAST : IType
 	{
 
 	}
 
 	// object IntType : Type
-	class IntegerAST : IType
+	public class IntegerAST : IType
 	{
 
 	}
@@ -83,22 +133,31 @@ namespace TypeScriptNative.src.AST
 	// Expressions
 	//
 
-	// interface BinaryExpression : Expression
+	//interface BinaryExpression : Expression
 	//{
 	//	val left: Expression
 	//	val right: Expression
 	//}
 
-	// data class SumExpression(override val left: Expression, override val right: Expression) : BinaryExpression
-	class SumExpression : INode
+	public interface BinaryExpression : Expression
 	{
-		Expression left;
-		Expression right;
-		SumExpression(Expression left, Expression right)
+		Expression left { get; }
+		Expression right { get; }
+	}
+
+	// data class SumExpression(override val left: Expression, override val right: Expression) : BinaryExpression
+	public class SumExpression : BinaryExpression
+	{
+		Expression _left;
+		Expression _right;
+		public SumExpression(Expression left, Expression right)
 		{
-			this.left = left;
-			this.right = right;
+			this._left = left;
+			this._right = right;
 		}
+
+		public Expression left => this._left;
+		public Expression right => this._right;
 	}
 
 	// data class SubtractionExpression(override val left: Expression, override val right: Expression) : BinaryExpression
@@ -112,30 +171,30 @@ namespace TypeScriptNative.src.AST
 	// data class TypeConversion(val value: Expression, val targetType: Type) : Expression
 
 	// data class VarReference(val varName: String) : Expression
-	class VarReference : Expression
+	public class VarReference : Expression
 	{
 		string varName;
-		VarReference(string varName)
+		public VarReference(string varName)
 		{
 			this.varName = varName;
 		}
 	}
 
 	// data class IntLit(val value: String) : Expression
-	class IntegerLiteral : Expression
+	public class IntegerLiteral : Expression
 	{
-		string value;
-		IntegerLiteral(string value)
+		public string value;
+		public IntegerLiteral(string value)
 		{
 			this.value = value;
 		}
 	}
 
 	// data class DecLit(val value: String) : Expression
-	class DecimalLiteral : Expression
+	public class DecimalLiteral : Expression
 	{
 		string value;
-		DecimalLiteral(string value)
+		public DecimalLiteral(string value)
 		{
 			this.value = value;
 		}
@@ -146,7 +205,7 @@ namespace TypeScriptNative.src.AST
 	 */
 
 	// data class VarDeclaration(val varName: String, val value: Expression) : Statement
-	class VarDeclaration : Statement
+	public class VarDeclaration : Statement
 	{
 		string varName;
 		Expression value;
@@ -158,7 +217,7 @@ namespace TypeScriptNative.src.AST
 	}
 
 	// data class Assignment(val varName: String, val value: Expression) : Statement
-	class Assignment : Statement
+	public class Assignment : Statement
 	{
 		string varName;
 		Expression value;
@@ -170,7 +229,7 @@ namespace TypeScriptNative.src.AST
 	}
 
 	// data class Print(val value: Expression) : Statement
-	class Print : Statement
+	public class Print : Statement
 	{
 		Expression value;
 		Print(Expression value)
@@ -179,11 +238,11 @@ namespace TypeScriptNative.src.AST
 		}
 	}
 
-	class Parameter : Statement
+	public class Parameter : Statement
 	{
-		string varName;
-		string type;
-		bool optional;
+		public string varName;
+		public string type;
+		public bool optional;
 		public Parameter(string varName, string type, bool optional = false)
 		{
 			this.varName = varName;
