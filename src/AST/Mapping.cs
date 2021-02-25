@@ -315,7 +315,7 @@ namespace TypeScriptNative.src.AST
 					if (ruleName == "expressionSequence")
 					{
 						expressions.AddRange(ExpressionSequenceToAST(child));
-						Console.WriteLine(">>>>> expressions count: " + expressions.Count);
+						//Console.WriteLine(">>>>> expressions count: " + expressions.Count);
 						if (expressions.Count == 1) return expressions[0];
 						else Console.WriteLine("Expressions count is superior to 1");
 					}
@@ -342,19 +342,19 @@ namespace TypeScriptNative.src.AST
 					if (ruleName == "singleExpression")
 					{
 						Expression expression = SingleExpresionToAST(child);
-						Console.WriteLine(expression);
+						Console.WriteLine("Expression type: " + expression);
 						expressions.Add(expression);
 					}
 				}
 			}
 			return expressions;
-			//throw new Exception("ExpressionSequenceToAST Exception > could not return Single Expresion To AST");
+			//throw new Exception("ExpressionSequenceToAST Exception > could not return Single Expression To AST");
 		}
 
 		public static Expression SingleExpresionToAST(ParserRuleContext ctx, bool considerPosition = false)
 		{
 			List<Expression> expressions = new List<Expression>();
-			Console.WriteLine(">>>>> " + ctx.GetType() + " val: " + ctx.GetText() + " children: " + ctx.ChildCount);
+			//Console.WriteLine(">>>>> " + ctx.GetType() + " val: " + ctx.GetText() + " children: " + ctx.ChildCount);
 
 			if (ctx is TypeScriptParser.IdentifierNameContext)
 			{
@@ -370,6 +370,11 @@ namespace TypeScriptNative.src.AST
 			Expression left = null;
 			Expression right = null;
 			Operation operation = Operation.UNKNOWN;
+
+			bool isFunction = false;
+			List<Expression> functionParameters = new List<Expression>();
+			string identifier = null;
+
 			foreach (var c in ctx.children)
 			{
 				if (c is ParserRuleContext)
@@ -381,7 +386,7 @@ namespace TypeScriptNative.src.AST
 
 					if (ruleName == "identifierName")
 					{
-						var identifier = child.GetText();
+						identifier = child.GetText();
 						left = new VarReference(identifier);
 					}
 					else if (ruleName == "singleExpression")
@@ -393,34 +398,40 @@ namespace TypeScriptNative.src.AST
 						}
 						else
 						{
-							Console.WriteLine("CHILD COUNT: " + child.ChildCount);
+							//Console.WriteLine("CHILD COUNT: " + child.ChildCount);
 							if (child.ChildCount == 1)
 								return GetExpressionsToAST2(child);
 							else if (child.ChildCount > 1)
 							{
+
+								if (child.children[0].GetText() == "(" && child.children[2].GetText() == ")")
+									isFunction = true;
+
 								List<Expression> expressions2 = new List<Expression>();
 								foreach (var child2 in child.children)
 								{
-									Console.WriteLine("SingleExpresion To AST: " + child2.GetType() + " >> " + child2.GetText());
-									// OUTPUT:
-									// SingleExpresion To AST: Antlr4.Runtime.Tree.TerminalNodeImpl >> (
-									// SingleExpresion To AST: TypeScriptParser + ExpressionSequenceContext >> 10,20
-									// SingleExpresion To AST: Antlr4.Runtime.Tree.TerminalNodeImpl >> )
-									if (child2 is TypeScriptParser.ExpressionSequenceContext)
+									//Console.WriteLine("Single Expression To AST: " + child2.GetType() + " >> " + child2.GetText());
+									if (child2 is TypeScriptParser.ExpressionSequenceContext && child2 is ParserRuleContext)
 									{
-										// TODO
+										if (isFunction)
+											functionParameters = GetFunctionParametersToAST((ParserRuleContext)child2, considerPosition);
 									}
 								}
 							}
 							else
 							{
-								throw new Exception("SingleExpresion To AST Exception in ruleName 'singleExpression' > is it a new operation?");
+								throw new Exception("Single Expression To AST Exception in ruleName 'singleExpression' > is it a new operation?");
 							}
 						}
 					}
 				}
 			}
-			Console.WriteLine("expressions count: " + expressions.Count);
+
+			if (isFunction && identifier != null)
+			{
+				return new FunctionCall(identifier, functionParameters);
+			}
+			//Console.WriteLine("expressions count: " + expressions.Count);
 			//Console.WriteLine("left: " + left.ToString());
 			//Console.WriteLine("right: " + right.ToString());
 			if (left != null && right != null)
@@ -428,7 +439,56 @@ namespace TypeScriptNative.src.AST
 				if (operation == Operation.ADDITION)
 					return new SumExpression(left, right);
 			}
-			throw new Exception("Single Expresion To AST Exception > could not get left or right");
+			throw new Exception("Single Expression To AST Exception > could not get left or right");
+		}
+
+		public static List<Expression> GetFunctionParametersToAST(ParserRuleContext ctx, bool considerPosition = false)
+		{
+			int ruleIndex = ctx.RuleIndex;
+			string ruleName = TypeScriptParser.ruleNames[ruleIndex];
+			//Console.WriteLine("ruleName: " + ruleName + " type: " + ctx.GetType() + " val: " + ctx.GetText() + " children: " + ctx.ChildCount);
+
+			List<Expression> expressions = new List<Expression>();
+			foreach (var child in ctx.children)
+			{
+				//Console.WriteLine("Parameter val: " + child.GetText());
+				//Console.WriteLine("type: " + child.GetType() + " val: " + child.GetText() + " children: " + child.ChildCount);
+				if (child is TypeScriptParser.LiteralExpressionContext)
+				{
+					expressions.Add(GetLiteralExpressionToAST((TypeScriptParser.LiteralExpressionContext)child));
+				}
+			}
+			return expressions;
+		}
+
+		public static Expression GetLiteralExpressionToAST(TypeScriptParser.LiteralExpressionContext ctx, bool considerPosition = false)
+		{
+			if (ctx.children.Count > 1) throw new Exception("GetLiteralExpressionToAST ctx has more than 1 child");
+			//Console.WriteLine("GetLiteralExpressionToAST >> type: " + ctx.GetType() + " val: " + ctx.GetText() + " children: " + ctx.ChildCount);
+			if (ctx.children[0] is TypeScriptParser.LiteralContext)
+				return GetLiteralToAST((TypeScriptParser.LiteralContext)ctx.children[0]);
+			throw new Exception("There was an error retrieving LiteralExpression from GetLiteralExpressionToAST");
+		}
+
+		public static Expression GetLiteralToAST(TypeScriptParser.LiteralContext ctx, bool considerPosition = false)
+		{
+			if (ctx.children.Count > 1) throw new Exception("GetLiteralToAST ctx has more than 1 child");
+			//Console.WriteLine("GetLiteralToAST >> type: " + ctx.GetType() + " val: " + ctx.GetText() + " children: " + ctx.ChildCount);
+			if (ctx.children[0] is TypeScriptParser.NumericLiteralContext)
+				return GetNumericalLiteralToAST((TypeScriptParser.NumericLiteralContext)ctx.children[0]);
+			throw new Exception("There was an error retrieving Literal from GetLiteralToAST");
+		}
+
+		public static IntegerLiteral GetNumericalLiteralToAST(TypeScriptParser.NumericLiteralContext ctx, bool considerPosition = false)
+		{
+			if (ctx.children.Count > 1) throw new Exception("GetNumericalLiteralToAST ctx has more than 1 child");
+			//Console.WriteLine("GetNumericalLiteralToAST >> type: " + ctx.GetType() + " val: " + ctx.GetText() + " children: " + ctx.ChildCount);
+			foreach (var c in ctx.children)
+			{
+				//Console.WriteLine("GetNumericalLiteralToAST >> type: " + c.GetType() + " val: " + c.GetText() + " children: " + c.ChildCount);
+				return new IntegerLiteral(c.GetText());
+			}
+			throw new Exception("There was an error retrieving Numecial Literal from GetNumericalLiteralToAST");
 		}
 
 		public static Expression GetExpressionsToAST2(ParserRuleContext ctx, bool considerPosition = false)
@@ -436,13 +496,12 @@ namespace TypeScriptNative.src.AST
 			foreach (var c in ctx.children)
 			{
 				//Console.WriteLine(c.GetType() + " val: " + c.GetText() + " children: " + c.ChildCount);
-
 				if (c is ParserRuleContext)
 				{
 					var child = (ParserRuleContext)c;
-					int ruleIndex = child.RuleIndex;
-					string ruleName = TypeScriptParser.ruleNames[ruleIndex];
-					Console.WriteLine("GetExpressionsToAST2: " + ruleName + " >> " + child.GetText());
+					//int ruleIndex = child.RuleIndex;
+					//string ruleName = TypeScriptParser.ruleNames[ruleIndex];
+					//Console.WriteLine("GetExpressionsToAST2: " + ruleName + " >> " + child.GetText());
 					//if (ruleName == "singleExpression")
 					//{
 					//	//return SingleExpresionToAST(ctx);

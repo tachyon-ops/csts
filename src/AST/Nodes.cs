@@ -45,6 +45,17 @@ namespace TypeScriptNative.src.AST
 		}
 	}
 
+	public class FunctionCall : Expression
+	{
+		public string functionName;
+		public List<Expression> parameters;
+		public FunctionCall(string functionName, List<Expression> parameters)
+		{
+			this.functionName = functionName;
+			this.parameters = parameters;
+		}
+	}
+
 	public class Argument : INode
 	{
 		ArgumentType type;

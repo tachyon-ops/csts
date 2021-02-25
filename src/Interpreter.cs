@@ -28,6 +28,8 @@ namespace TypeScriptNative.src
 				RunFunctionDeclaration((FunctionDeclaration)statement.child);
 			if (statement.child is IntegerLiteral)
 				RunIntegerLiteral((IntegerLiteral)statement.child);
+			if (statement.child is FunctionCall)
+				RunFunctionCall((FunctionCall)statement.child);
 			--this.forLevel;
 		}
 
@@ -47,6 +49,21 @@ namespace TypeScriptNative.src
 		{
 			++this.forLevel;
 			Console.WriteLine(GetPad() + " integer " + integer.value);
+			--this.forLevel;
+		}
+
+		public void RunFunctionCall(FunctionCall function)
+		{
+			++this.forLevel;
+			Console.WriteLine(GetPad() + " function: " + function.functionName);
+			foreach (var param in function.parameters)
+			{
+				if (param is IntegerLiteral)
+				{
+					IntegerLiteral integer = (IntegerLiteral)param;
+					Console.WriteLine(GetPad() + "  |-> param: " + integer.value);
+				}
+			}
 			--this.forLevel;
 		}
 
