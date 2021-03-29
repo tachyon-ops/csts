@@ -108,10 +108,12 @@ namespace TypeScriptNative.src.AST
 
 			if (ctx.ChildCount < 6) throw new Exception("Function to AST has less than 6 children");
 
-			Tuple<string, List<Parameter>> callSignature = new Tuple<string, List<Parameter>>(null, new List<Parameter>());
+			string type = null;
+			List<Parameter> parameters = new List<Parameter>();
+			List<Statement> bodyStatements = new List<Statement>();
 			foreach (var c in ctx.children)
 			{
-				//Console.WriteLine(c.GetType() + " val: " + c.GetText() + " children: " + c.ChildCount);
+				Console.WriteLine("FunctionToAST: " + c.GetType() + " val: " + c.GetText() + " children: " + c.ChildCount);
 
 				if (c is ParserRuleContext)
 				{
@@ -123,22 +125,25 @@ namespace TypeScriptNative.src.AST
 					//Console.WriteLine(ruleName);
 					if (ruleName == "callSignature")
 					{
-						callSignature = CallSignatureToAST(child);
+						var callSignature = CallSignatureToAST(child);
+						type = callSignature.Item1;
+						parameters = callSignature.Item2;
 					}
 					if (ruleName == "functionBody")
 					{
 						// get expression and return expression
 						//functionBody =
-						FunctionBodyToAST(ctx);
+						bodyStatements.AddRange(FunctionBodyToAST(ctx));
 					}
 				}
 			}
 			string functionIdentifer = ctx.children[1].GetText();
-			return new FunctionDeclaration(functionIdentifer, callSignature.Item2, callSignature.Item1);
+			return new FunctionDeclaration(functionIdentifer, parameters, bodyStatements, type);
 		}
 
-		private static void FunctionBodyToAST(ParserRuleContext ctx, bool considerPosition = false)
+		private static List<Statement> FunctionBodyToAST(ParserRuleContext ctx, bool considerPosition = false)
 		{
+			List<Statement> bodyStatements = new List<Statement>();
 			foreach (var c in ctx.children)
 			{
 				//Console.WriteLine(c.GetType() + " val: " + c.GetText() + " children: " + c.ChildCount);
@@ -152,14 +157,16 @@ namespace TypeScriptNative.src.AST
 
 					if (ruleName == "functionBody")
 					{
-						FunctionBodyStatements(child);
+						bodyStatements.AddRange(FunctionBodyStatements(child));
 					}
 				}
 			}
+			return bodyStatements;
 		}
 
 		private static List<Statement> FunctionBodyStatements(ParserRuleContext ctx, bool considerPosition = false)
 		{
+			List<Statement> bodyStatements = new List<Statement>();
 			foreach (var c in ctx.children)
 			{
 				//Console.WriteLine(c.GetType() + " val: " + c.GetText() + " children: " + c.ChildCount);
@@ -173,11 +180,11 @@ namespace TypeScriptNative.src.AST
 
 					if (ruleName == "sourceElements")
 					{
-						return SourceElementsToAST(child);
+						bodyStatements.AddRange(SourceElementsToAST(child));
 					}
 				}
 			}
-			return new List<Statement>();
+			return bodyStatements;
 		}
 
 		private static Tuple<string, List<Parameter>> CallSignatureToAST(ParserRuleContext ctx, bool considerPosition = false)

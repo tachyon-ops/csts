@@ -3,6 +3,24 @@ using System.Collections.Generic;
 
 namespace TypeScriptNative.src.AST
 {
+
+	public enum ArgumentType
+	{
+		numericLiteral
+	}
+
+	public enum StatementType
+	{
+		RETURN,
+		SINGLE_EXPRESSION
+	}
+
+	public enum Operation
+	{
+		UNKNOWN,
+		ADDITION
+	}
+
 	// interface Node
 	public interface INode { }
 
@@ -36,11 +54,13 @@ namespace TypeScriptNative.src.AST
 		public string functionName;
 		public List<Parameter> parameters;
 		public string type;
-		public FunctionDeclaration(string functionName, List<Parameter> parameters, string type = null)
+		public List<Statement> bodyStatements;
+		public FunctionDeclaration(string functionName, List<Parameter> parameters, List<Statement> bodyStatements, string type = null)
 		{
 			this.functionName = functionName;
 			this.parameters = parameters;
 			this.type = type;
+			this.bodyStatements = bodyStatements;
 			Console.WriteLine("TODO: FunctionDeclaration | identifier: " + this.functionName + " parameters: " + this.parameters.Count + " type: " + this.type);
 		}
 	}
@@ -67,17 +87,6 @@ namespace TypeScriptNative.src.AST
 		}
 	}
 
-	public enum ArgumentType
-	{
-		numericLiteral
-	}
-
-	public enum StatementType
-	{
-		RETURN,
-		SINGLE_EXPRESSION
-	}
-
 	// interface Statement : Node { }
 	public class Statement : INode
 	{
@@ -91,11 +100,7 @@ namespace TypeScriptNative.src.AST
 		}
 	}
 
-	public enum Operation
-	{
-		UNKNOWN,
-		ADDITION
-	}
+
 
 	public interface Expression : INode { }
 	//class Expression : INode
@@ -184,7 +189,7 @@ namespace TypeScriptNative.src.AST
 	// data class VarReference(val varName: String) : Expression
 	public class VarReference : Expression
 	{
-		string varName;
+		public string varName;
 		public VarReference(string varName)
 		{
 			this.varName = varName;
