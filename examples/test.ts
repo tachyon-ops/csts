@@ -1,4 +1,4 @@
-function main(x: number, y: number): number {
+function main(x, y) {
     return x + y;
 }
 main(10, 20);

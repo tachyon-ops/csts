@@ -1,9 +1,13 @@
 ﻿using System;
 using System.IO;
-using Antlr4.Runtime;
-using Antlr4.Runtime.Tree;
-
-using TypeScriptNative.src;
+using System.Text;
+using System.Collections.Generic;
+using TypeScriptNative;
+using TypeScriptNative.Scan;
+using TypeScriptNative.Parse;
+using TypeScriptNative.AST;
+using TypeScriptNative.Interpret;
+using TypeScriptNative.Passes;
 
 namespace prog_lang
 {
@@ -16,6 +20,36 @@ namespace prog_lang
 
 	class Program
 	{
+		private static readonly Interpreter interpreter = new();
+
+		private static void Run(String source)
+		{
+			Scanner scanner = new(source);
+			List<Token> tokens = scanner.scanTokens();
+			//scanner.debug();
+
+			Parser parser = new(tokens);
+			List<Stmt> statements = parser.parse();
+
+			// Stop if there was a syntax error.
+			if (ErrorReport.hadError) return;
+
+			Resolver resolver = new(interpreter);
+			resolver.resolve(statements);
+
+			//// Stop if there was a resolution error.
+			if (ErrorReport.hadError) return;
+
+			interpreter.interpret(statements);
+		}
+
+		private static void RunFile(String path)
+		{
+			byte[] bytes = File.ReadAllBytes(path);
+			Run(Encoding.Default.GetString(bytes));
+
+		}
+		private static void RunPrompt() { }
 
 		static int Main(string[] args)
 		{
@@ -24,65 +58,23 @@ namespace prog_lang
 			Console.WriteLine("||       TypeScript Native PoC v0.1       ||");
 			Console.WriteLine("============================================");
 
-			if (args.Length < 2)
+			if (args.Length > 1)
 			{
-				Console.WriteLine("Please enter proper arguments.");
-				Console.WriteLine("Usage: -c for compiler");
-				Console.WriteLine("       -i for interpreter");
-				Console.WriteLine("       ./test.ts for TS file");
-				Console.WriteLine("Example: program -c ./test.ts");
-				return 1;
+				Console.WriteLine("Usage: jlox [script]");
+				return 64;
+			}
+			else if (args.Length == 1)
+			{
+				RunFile(args[0]);
+			}
+			else
+			{
+				RunPrompt();
 			}
 
-			Console.WriteLine("Arguments: " + args[0] + " " + args[1]);
-
-			Operation operation = args[0] == "-i" ? Operation.INTERPRETER : Operation.COMPILER;
-			string fileName = args[1];
-			if (!File.Exists(fileName))
-			{
-				Console.WriteLine("File " + fileName + " was not found.");
-				return 1;
-			}
-			string text = File.ReadAllText(fileName);
-			//Console.WriteLine(text + " OP: " + operation);
-
-			try
-			{
-				var stream = new AntlrInputStream(text);
-				var lexer = new TypeScriptLexer(stream);
-				var tokenStream = new CommonTokenStream(lexer);
-				var parser = new TypeScriptParser(tokenStream);
-				IParseTree tree = parser.program();
-				//Console.WriteLine("parse tree (LISP style): \n" + tree.ToStringTree(parser));
-				parser.RemoveErrorListeners();
-				parser.AddErrorListener(new ThrowingErrorListener<IToken>());
-
-				IRunner runner;
-				if (operation == Operation.INTERPRETER)
-				{
-					Console.WriteLine("Interpreter triggered");
-					runner = new Interpreter();
-				}
-				else
-				{
-					runner = new Compiler();
-				}
-
-				TypeScriptParserListener expressionWalker = new TypeScriptParserListener(runner);
-				ParseTreeWalker walker = new ParseTreeWalker();
-				// Walker
-				walker.Walk(expressionWalker, tree);
-
-			}
-			catch (Exception ex)
-			{
-				Console.WriteLine(ex.ToString());
-			}
 
 			Console.WriteLine("Exiting...");
 			return 0;
-			//Console.Write("Press any key to continue...");
-			//Console.ReadKey(true);
 		}
 
 	}

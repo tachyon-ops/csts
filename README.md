@@ -7,6 +7,17 @@ Typescript runtime in C# (WIP and PoC trial)
 The simplicity of TS is a great asset and if one could have it as a scripting language as [lua](https://www.lua.org/home.html) or [AngelScript](https://www.angelcode.com/angelscript/), we could gain enourmous power. Obviously, if one can runtime a subset of TS, we might as well compile it :)
 And... why not?
 
+## How to publish?
+
+### Mac OS
+
+- dotnet publish -r osx-x64
+
+## How to run?
+
+If you have only build the debug, use the following:
+- ./bin/Debug/net5.0/osx-x64/TypeScriptNative
+
 ## How?
 
 We use ANTLR as a compiler frontent to define syntax and rules (lexer and parser).
