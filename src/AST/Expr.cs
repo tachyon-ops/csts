@@ -250,5 +250,10 @@ namespace TypeScriptNative.AST
 		{
 			return visitor.visitVariableExpr(this);
 		}
+
+		public override string ToString()
+		{
+			return base.ToString() + " :: name => " + this.name;
+		}
 	}
 }

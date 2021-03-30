@@ -14,8 +14,12 @@ namespace TypeScriptNative.globals
 		public Object call(Interpret.Interpreter interpreter,
 						   List<Object> arguments)
 		{
-			Object value = arguments[0];
-			System.Console.WriteLine(Utils.stringify(value));
+			Object value = "";
+			foreach (var arg in arguments)
+			{
+				value += Utils.stringify(arg);
+			}
+			System.Console.WriteLine(value);
 			return value;
 		}
 

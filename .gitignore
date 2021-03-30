@@ -3,3 +3,5 @@ obj/
 .vs/
 mono_crash.*
 .antlr/
+
+./output/TypeScriptNative.app

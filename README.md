@@ -13,6 +13,8 @@ And... why not?
 
 - dotnet publish -r osx-x64
 
+- See more at [https://avaloniaui.net/docs/packing/macOS#manual](https://avaloniaui.net/docs/packing/macOS#manual) 
+
 ## How to run?
 
 If you have only build the debug, use the following:

@@ -1,4 +1,6 @@
 using System;
+using System.Text.RegularExpressions;
+
 namespace TypeScriptNative.globals
 {
 	public class Utils
@@ -7,8 +9,13 @@ namespace TypeScriptNative.globals
 		public static String stringify(Object myObject)
 		{
 			if (myObject == null) return "nil";
-
-			if (myObject is Double) {
+			if (myObject is String)
+			{
+				// remove ""
+				return Regex.Replace(((string)myObject).ToString(), "^\"|\"$", "");
+			}
+			if (myObject is Double)
+			{
 				String text = myObject.ToString();
 				if (text.EndsWith(".0"))
 				{

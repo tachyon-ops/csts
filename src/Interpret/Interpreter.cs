@@ -25,6 +25,7 @@ namespace TypeScriptNative.Interpret
 
 		public void interpret(List<Stmt> statements)
 		{
+			//Console.WriteLine("interpret");
 			try
 			{
 				foreach (Stmt statement in statements)
@@ -41,8 +42,10 @@ namespace TypeScriptNative.Interpret
 		// Expressions Visitor
 		object Expr.Visitor<object>.visitAssignExpr(Assign expr)
 		{
+			//Console.WriteLine("visitAssignExpr");
 			Object value = evaluate(expr.value);
 
+			// Integer distance = locals.get(expr);
 			int distance = locals[expr];
 			if (!distance.Equals(null))
 			{
@@ -58,6 +61,7 @@ namespace TypeScriptNative.Interpret
 
 		object Expr.Visitor<object>.visitBinaryExpr(Binary expr)
 		{
+			//Console.WriteLine("visitBinaryExpr");
 			Object left = evaluate(expr.left);
 			Object right = evaluate(expr.right);
 
@@ -109,6 +113,7 @@ namespace TypeScriptNative.Interpret
 
 		object Expr.Visitor<object>.visitCallExpr(Call expr)
 		{
+			//Console.WriteLine("visitCallExpr");
 			Object callee = evaluate(expr.callee);
 
 			List<Object> arguments = new List<Object>();
@@ -123,17 +128,19 @@ namespace TypeScriptNative.Interpret
 						"Can only call functions and classes.");
 			}
 			TypeScriptNativeCallable function = (TypeScriptNativeCallable)callee;
-			if (arguments.Count != function.arity())
-			{
-				throw new RuntimeError(expr.paren, "Expected " +
-						function.arity() + " arguments but got " +
-						arguments.Count + ".");
-			}
+			// TODO: allow optional
+			//if (arguments.Count != function.arity())
+			//{
+			//	throw new RuntimeError(expr.paren, "Expected " +
+			//			function.arity() + " arguments but got " +
+			//			arguments.Count + ".");
+			//}
 			return function.call(this, arguments);
 		}
 
 		object Expr.Visitor<object>.visitGetExpr(Get expr)
 		{
+			//Console.WriteLine("visitGetExpr");
 			Object myObject = evaluate(expr.myObject);
 			if (myObject is TypeScriptNativeInstance)
 			{
@@ -146,16 +153,19 @@ namespace TypeScriptNative.Interpret
 
 		object Expr.Visitor<object>.visitGroupingExpr(Grouping expr)
 		{
+			//Console.WriteLine("visitGroupingExpr");
 			return evaluate(expr.expression);
 		}
 
 		object Expr.Visitor<object>.visitLiteralExpr(Literal expr)
 		{
+			//Console.WriteLine("visitLiteralExpr");
 			return expr.value;
 		}
 
 		object Expr.Visitor<object>.visitLogicalExpr(Logical expr)
 		{
+			//Console.WriteLine("visitLogicalExpr");
 			Object left = evaluate(expr.left);
 
 			if (expr.myOperator.type == TokenType.OR)
@@ -172,6 +182,7 @@ namespace TypeScriptNative.Interpret
 
 		object Expr.Visitor<object>.visitSetExpr(Set expr)
 		{
+			//Console.WriteLine("visitSetExpr");
 			Object myObject = evaluate(expr.myObject);
 
 			if (!(myObject is TypeScriptNativeInstance))
@@ -187,6 +198,8 @@ namespace TypeScriptNative.Interpret
 
 		object Expr.Visitor<object>.visitSuperExpr(Super expr)
 		{
+			//Console.WriteLine("visitSuperExpr");
+			// int distance = locals.get(expr);
 			int distance = locals[expr];
 			TypeScriptNativeClass superclass =
 				(TypeScriptNativeClass)environment.getAt(distance, "super");
@@ -204,11 +217,13 @@ namespace TypeScriptNative.Interpret
 
 		object Expr.Visitor<object>.visitThisExpr(This expr)
 		{
+			//Console.WriteLine("visitThisExpr");
 			return lookUpVariable(expr.keyword, expr);
 		}
 
 		object Expr.Visitor<object>.visitUnaryExpr(Unary expr)
 		{
+			//Console.WriteLine("visitUnaryExpr");
 			Object right = evaluate(expr.right);
 			switch (expr.myOperator.type)
 			{
@@ -224,18 +239,23 @@ namespace TypeScriptNative.Interpret
 
 		object Expr.Visitor<object>.visitVariableExpr(Variable expr)
 		{
+			//Console.WriteLine("visitVariableExpr");
 			return lookUpVariable(expr.name, expr);
+			//Console.WriteLine("lookUpVariable on visitVariableExpr return: " + obj.ToString());
+			//return obj;
 		}
 
 		// Statements Visitor
 		object Stmt.Visitor<object>.visitBlockStmt(Block stmt)
 		{
+			//Console.WriteLine("visitBloclStmt");
 			executeBlock(stmt.statements, new MyEnvironment(environment));
 			return null;
 		}
 
 		object Stmt.Visitor<object>.visitClassStmt(Class stmt)
 		{
+			//Console.WriteLine("visitClassStmt");
 			Object superclass = null;
 			if (stmt.superclass != null)
 			{
@@ -286,12 +306,14 @@ namespace TypeScriptNative.Interpret
 
 		object Stmt.Visitor<object>.visitExpressionStmt(Expression stmt)
 		{
+			//Console.WriteLine("visitExpressionStmt");
 			evaluate(stmt.expression);
 			return null;
 		}
 
 		object Stmt.Visitor<object>.visitFunctionStmt(Function stmt)
 		{
+			//Console.WriteLine("visitFunctionStmt");
 			TypeScriptNativeFunction function =
 				new TypeScriptNativeFunction(stmt, environment, false);
 			environment.define(stmt.name.lexeme, function);
@@ -300,6 +322,7 @@ namespace TypeScriptNative.Interpret
 
 		object Stmt.Visitor<object>.visitIfStmt(If stmt)
 		{
+			//Console.WriteLine("visitIfStmt");
 			if (isTruthy(evaluate(stmt.condition)))
 			{
 				execute(stmt.thenBranch);
@@ -313,6 +336,7 @@ namespace TypeScriptNative.Interpret
 
 		object Stmt.Visitor<object>.visitReturnStmt(Return stmt)
 		{
+			//Console.WriteLine("visitReturnStmt");
 			Object value = null;
 			if (stmt.value != null) value = evaluate(stmt.value);
 			throw new ReturnException(value);
@@ -320,6 +344,7 @@ namespace TypeScriptNative.Interpret
 
 		object Stmt.Visitor<object>.visitVarStmt(MyVar stmt)
 		{
+			//Console.WriteLine("visitVarStmt");
 			Object value = null;
 			if (stmt.initializer != null)
 			{
@@ -332,6 +357,7 @@ namespace TypeScriptNative.Interpret
 
 		object Stmt.Visitor<object>.visitWhileStmt(While stmt)
 		{
+			//Console.WriteLine("visitWhileStmt");
 			while (isTruthy(evaluate(stmt.condition)))
 			{
 				execute(stmt.body);
@@ -343,26 +369,38 @@ namespace TypeScriptNative.Interpret
 
 		private Object lookUpVariable(Token name, Expr expr)
 		{
-			Console.WriteLine(name.lexeme + " " + expr.ToString());
-			int distance = locals[expr];
-			if (!distance.Equals(null))
+			//Console.WriteLine("lookUpVariable: " + name.lexeme + " " + name.literal);
+			//Console.WriteLine(name.lexeme + " " + expr);
+			//Console.WriteLine("Locals: ");
+			//foreach (var myName in locals)
+			//{
+			//	//Console.WriteLine(name + " :lexeme: " + name.lexeme + " :literal: " + name.literal);
+			//	//Console.WriteLine(locals[expr]);
+			//}
+			//int distance = locals[name.lexeme];
+
+			// int distance = locals.get(expr);
+			if (locals.ContainsKey(expr))
 			{
-				return environment.getAt(distance, name.lexeme);
+				int distance = locals[expr];
+				if (!distance.Equals(null))
+				{
+					return environment.getAt(distance, name.lexeme);
+				}
 			}
-			else
-			{
-				return globals.get(name);
-			}
+			return globals.get(name);
 		}
 
 		public void resolve(Expr expr, int depth)
 		{
+			//Console.WriteLine("resolve local");
 			locals.Add(expr, depth);
 		}
 
 		public void executeBlock(List<Stmt> statements,
 					  MyEnvironment environment)
 		{
+			//Console.WriteLine("executeBlock");
 			MyEnvironment previous = this.environment;
 			try
 			{

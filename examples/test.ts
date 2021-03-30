@@ -1,4 +1,5 @@
 function main(x, y) {
-    return x + y;
+	return x + y;
 }
-main(10, 20);
+var result = main(10, 20);
+println("result: ", result);
