@@ -91,7 +91,7 @@ namespace TypeScriptNative.Interpret
 
 					if (left is String && right is String)
 					{
-						return (String)left + (String)right;
+						return (String)Utils.stringify(left) + (String)Utils.stringify(right);
 					}
 
 					throw new RuntimeError(expr.myOperator,
