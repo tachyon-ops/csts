@@ -385,6 +385,12 @@ namespace TypeScriptNative.Parse
 
 		private Expr call()
 		{
+			// TODO: impose that the identifier is indeed followed by a class instantiation
+			if (match(TokenType.NEW))
+			{
+				// Console.WriteLine("NEW matched!");
+			}
+
 			Expr expr = primary();
 
 			while (true)
@@ -458,6 +464,7 @@ namespace TypeScriptNative.Parse
 				consume(TokenType.RIGHT_PAREN, "Expect ')' after expression.");
 				return new Grouping(expr);
 			}
+
 			throw error(peek(), "Expect expression.");
 		}
 

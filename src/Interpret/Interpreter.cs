@@ -4,6 +4,7 @@ using TypeScriptNative.AST;
 using TypeScriptNative.globals;
 using TypeScriptNative.Scan;
 using TypeScriptNative.language;
+using TypeScriptNative.Parse;
 
 namespace TypeScriptNative.Interpret
 {
@@ -21,11 +22,26 @@ namespace TypeScriptNative.Interpret
 			this.globals.define("println", new Println());
 
 			this.environment = this.globals;
+
+			this.AddTypeScriptGlobals();
+		}
+
+		public void AddTypeScriptGlobals()
+		{
+			// TODO: variable problem here
+			//Scanner scanner = new(GlobalSource.Get());
+			//List<Token> tokens = scanner.scanTokens();
+			//Parser parser = new(tokens);
+			//foreach (Stmt statement in parser.parse())
+			//{
+			//	execute(statement);
+			//}
+
+			//Console.WriteLine("TypeScript globals added");
 		}
 
 		public void interpret(List<Stmt> statements)
 		{
-			//Console.WriteLine("interpret");
 			try
 			{
 				foreach (Stmt statement in statements)
@@ -44,17 +60,17 @@ namespace TypeScriptNative.Interpret
 		{
 			Object value = evaluate(expr.value);
 
-			if (globals.KeyExistsSomewhere(expr.name))
+			int outDistance;
+			var found = locals.TryGetValue(expr, out outDistance);
+			int distance = found ? outDistance : 0;
+
+			if (locals.ContainsKey(expr))
 			{
-				if (locals.ContainsKey(expr))
-				{
-					int distance = locals[expr];
-					environment.assignAt(distance, expr.name, value);
-				}
-				else
-				{
-					globals.assign(expr.name, value);
-				}
+				environment.assignAt(distance, expr.name, value);
+			}
+			else
+			{
+				globals.assign(expr.name, value);
 			}
 
 			return value;
@@ -177,9 +193,7 @@ namespace TypeScriptNative.Interpret
 
 		object Expr.Visitor<object>.visitLogicalExpr(Logical expr)
 		{
-			//Console.WriteLine("visitLogicalExpr");
 			Object left = evaluate(expr.left);
-
 			if (expr.myOperator.type == TokenType.OR)
 			{
 				if (isTruthy(left)) return left;
@@ -188,7 +202,6 @@ namespace TypeScriptNative.Interpret
 			{
 				if (!isTruthy(left)) return left;
 			}
-
 			return evaluate(expr.right);
 		}
 
@@ -212,8 +225,9 @@ namespace TypeScriptNative.Interpret
 		{
 			//Console.WriteLine("visitSuperExpr");
 			// int distance = locals.get(expr);
-			int distance;
-			locals.TryGetValue(expr, out distance);
+			int outDistance;
+			var found = locals.TryGetValue(expr, out outDistance);
+			int distance = found ? outDistance : 0;
 
 			TypeScriptNativeClass superclass =
 				(TypeScriptNativeClass)environment.getAt(distance, "super");
@@ -253,6 +267,7 @@ namespace TypeScriptNative.Interpret
 
 		object Expr.Visitor<object>.visitVariableExpr(Variable expr)
 		{
+			//Console.WriteLine("visitVariableExpr");
 			return lookUpVariable(expr.name, expr);
 		}
 
@@ -294,7 +309,7 @@ namespace TypeScriptNative.Interpret
 					new TypeScriptNativeFunction(
 						method,
 						environment,
-						method.name.lexeme.Equals("init")
+						method.name.lexeme.Equals("constructor")
 					);
 				methods.Add(method.name.lexeme, function);
 			}
@@ -380,9 +395,25 @@ namespace TypeScriptNative.Interpret
 
 		private Object lookUpVariable(Token name, Expr expr)
 		{
-			if (locals.ContainsKey(expr))
+			//Console.WriteLine("lookUpVariable: " + name.lexeme + " " + expr.ToString());
+
+			int outDistance;
+			var found = locals.TryGetValue(expr, out outDistance);
+			int distance = found ? outDistance : 0;
+
+			//if (name.lexeme == "message")
+			//{
+
+			//	foreach (var local in locals)
+			//	{
+			//		Console.WriteLine("local: " + local.Value);
+			//	}
+			//}
+
+			if (found)
 			{
-				return environment.getAt(locals[expr], name.lexeme);
+				//Console.WriteLine("locals[expr]: " + distance);
+				return environment.getAt(distance, name.lexeme);
 			}
 			else
 			{
@@ -392,8 +423,8 @@ namespace TypeScriptNative.Interpret
 
 		public void resolve(Expr expr, int depth)
 		{
-			//Console.WriteLine("resolve local");
-			locals.Add(expr, depth);
+			//Console.WriteLine("resolve local expr: " + expr + " depth: " + depth);
+			locals[expr] = depth;
 		}
 
 		public void executeBlock(List<Stmt> statements,

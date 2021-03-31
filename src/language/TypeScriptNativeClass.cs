@@ -40,7 +40,7 @@ namespace TypeScriptNative.language
 		object TypeScriptNativeCallable.call(Interpreter interpreter, List<object> arguments)
 		{
 			TypeScriptNativeInstance instance = new TypeScriptNativeInstance(this);
-			TypeScriptNativeFunction initializer = findMethod("init");
+			TypeScriptNativeFunction initializer = findMethod("constructor");
 			if (initializer != null)
 			{
 				initializer.bind(instance).call(interpreter, arguments);

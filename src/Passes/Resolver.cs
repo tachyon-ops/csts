@@ -52,16 +52,16 @@ namespace TypeScriptNative.Passes
 			if (stmt.superclass != null)
 			{
 				beginScope();
-				scopes.Peek().Add("super", true);
+				scopes.Peek()["super"] = true;
 			}
 
 			beginScope();
-			scopes.Peek().Add("this", true);
+			scopes.Peek()["this"] = true;
 
 			foreach (Function method in stmt.methods)
 			{
 				FunctionType declaration = FunctionType.METHOD;
-				if (method.name.lexeme.Equals("init"))
+				if (method.name.lexeme.Equals("constructor"))
 				{
 					declaration = FunctionType.INITIALIZER;
 				}
@@ -233,13 +233,12 @@ namespace TypeScriptNative.Passes
 			if (scopes.Count != 0 && scopes.Peek().ContainsKey(expr.name.lexeme))
 			{
 				var value = scopes.Peek()[expr.name.lexeme];
-				if (!value)
+				if (value == false)
 				{
 					ErrorReport.error(expr.name,
 					"Can't read local variable in its own initializer.");
 				}
 			}
-
 			resolveLocal(expr, expr.name);
 			return null;
 		}
@@ -309,11 +308,12 @@ namespace TypeScriptNative.Passes
 
 		private void resolveLocal(Expr expr, Token name)
 		{
-			for (int i = scopes.Count - 1; i >= 0; i--)
+			var scopesSize = scopes.Count - 1;
+			for (int i = scopesSize; i >= 0; i--)
 			{
 				if (scopes.ToArray()[i].ContainsKey(name.lexeme))
 				{
-					interpreter.resolve(expr, scopes.Count - 1 - i);
+					interpreter.resolve(expr, scopesSize - i);
 					return;
 				}
 			}

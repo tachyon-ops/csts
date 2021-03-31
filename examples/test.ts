@@ -1,11 +1,17 @@
-var a: number = 3;
+//console.log("hi" && 2);
+//console.log("hi" || 2);
+//console.log(null && "yes");
+//console.log(null || "yes");
+var a = 2;
 println(a);
-a = 2;
+a = 3;
 println(a);
 
-function f(): void {
-	println("a" + "b");
-	println("a" + 3);
+class Console {
+	log(message) {
+		println(message);
+	}
 }
-f();
 
+var console = new Console();
+console.log("test");

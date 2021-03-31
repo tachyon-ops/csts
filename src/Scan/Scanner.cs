@@ -11,7 +11,7 @@ namespace TypeScriptNative.Scan
 		private int line = 1;
 		private List<Token> tokens = new List<Token>();
 		private static Dictionary<String, TokenType> keywords = new Dictionary<String, TokenType>(){
-			{"and", TokenType.AND},
+			{"new", TokenType.NEW},
 			{"class", TokenType.CLASS},
 			{"extends", TokenType.EXTENDS},
 			{"else", TokenType.ELSE},
@@ -20,8 +20,6 @@ namespace TypeScriptNative.Scan
 			{"function", TokenType.FUN},
 			{"if", TokenType.IF},
 			{"null", TokenType.NIL},
-			{"or", TokenType.OR},
-			//{"print",  TokenType.PRINT},
 			{"return", TokenType.RETURN},
 			{"super", TokenType.SUPER},
 			{"this", TokenType.THIS},
@@ -33,7 +31,6 @@ namespace TypeScriptNative.Scan
 			{"interface", TokenType.INTERFACE},
 			{"type", TokenType. TYPE},
 			{"implements", TokenType.IMPLEMENTS},
-			// IDENTIFIER, STRING, NUMBER, BOOLEAN, INT, OBJECT,
 		};
 
 		internal void debug()
@@ -110,6 +107,18 @@ namespace TypeScriptNative.Scan
 					break;
 				case '>':
 					addToken(match('=') ? TokenType.GREATER_EQUAL : TokenType.GREATER);
+					break;
+				case '&':
+					if (peek() == '&')
+					{
+						addToken(TokenType.AND);
+					}
+					break;
+				case '|':
+					if (peek() == '|')
+					{
+						addToken(TokenType.OR);
+					}
 					break;
 				case '/':
 					if (match('/'))
