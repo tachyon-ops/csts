@@ -1,7 +1,7 @@
 #!/bin/bash
 APP_NAME="./TypeScriptNative.app"
 ENTITLEMENTS="./MyAppEntitlements.entitlements"
-SIGNING_IDENTITY="Developer ID: TachyonVFX" # matches Keychain Access certificate name
+SIGNING_IDENTITY="Apple Development: nmpribeiro@gmail.com (X4GFGN4N68)" # matches Keychain Access certificate name
 
 find "$APP_NAME/Contents/MacOS"|while read fname; do
     if [[ -f $fname ]]; then

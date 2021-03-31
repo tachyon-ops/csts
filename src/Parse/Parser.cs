@@ -164,6 +164,9 @@ namespace TypeScriptNative.Parse
 			Token name = consume(TokenType.IDENTIFIER, "Expect " + kind + " name.");
 			consume(TokenType.LEFT_PAREN, "Expect '(' after " + kind + " name.");
 			List<Token> parameters = new List<Token>();
+
+			String functionType = null; // Prepare type
+
 			if (!check(TokenType.RIGHT_PAREN))
 			{
 				do
@@ -173,18 +176,33 @@ namespace TypeScriptNative.Parse
 						error(peek(), "Can't have more than 255 parameters.");
 					}
 
-					parameters.Add(
-							consume(TokenType.IDENTIFIER, "Expect parameter name."));
+					Token paramIdentifier = consume(TokenType.IDENTIFIER, "Expect parameter name.");
 
-					// TODO: accept types
+					// Parameters TYPE consumption
+					if (check(TokenType.COLON))
+					{
+						advance(); // consume COLON
+						String paramType = consume(TokenType.IDENTIFIER, "Parameter type expected.").lexeme;
+						Console.WriteLine("Function parameter '" + paramIdentifier.lexeme + "' type: " + paramType.ToString());
+						paramIdentifier.typeDefinition = paramType;
+					}
+					parameters.Add(paramIdentifier);
 
 				} while (match(TokenType.COMMA));
 			}
 			consume(TokenType.RIGHT_PAREN, "Expect ')' after parameters.");
 
+			// Function TYPE consumption
+			if (check(TokenType.COLON))
+			{
+				advance(); // consume COLON
+				functionType = consume(TokenType.IDENTIFIER, "Function type expected.").lexeme;
+				Console.WriteLine("Function '" + name.lexeme + "' type: " + functionType.ToString());
+			}
+
 			consume(TokenType.LEFT_BRACE, "Expect '{' before " + kind + " body.");
 			List<Stmt> body = block();
-			return new Function(name, parameters, body);
+			return new Function(name, parameters, body, functionType);
 		}
 
 		private List<Stmt> block()
@@ -217,6 +235,16 @@ namespace TypeScriptNative.Parse
 		{
 			Token name = consume(TokenType.IDENTIFIER, "Expect variable name.");
 
+			// Variable TYPE consumption
+			String typeDefinition = null;
+			if (match(TokenType.COLON))
+			{
+				// Flabergasted as to why the next token would be the IDENTIFIER
+				//advance(); // consume COLON
+				typeDefinition = consume(TokenType.IDENTIFIER, "Expect type after colon in variable declaration.").lexeme;
+				Console.WriteLine("Variable '" + name.lexeme + "' type: " + typeDefinition);
+			}
+
 			Expr initializer = null;
 			if (match(TokenType.EQUAL))
 			{
@@ -224,7 +252,7 @@ namespace TypeScriptNative.Parse
 			}
 
 			consume(TokenType.SEMICOLON, "Expect ';' after variable declaration.");
-			return new MyVar(name, initializer);
+			return new MyVar(name, initializer, typeDefinition);
 		}
 
 		private Stmt whileStatement()

@@ -42,18 +42,19 @@ namespace TypeScriptNative.Interpret
 		// Expressions Visitor
 		object Expr.Visitor<object>.visitAssignExpr(Assign expr)
 		{
-			//Console.WriteLine("visitAssignExpr");
 			Object value = evaluate(expr.value);
 
-			// Integer distance = locals.get(expr);
-			int distance = locals[expr];
-			if (!distance.Equals(null))
+			if (globals.KeyExistsSomewhere(expr.name))
 			{
-				environment.assignAt(distance, expr.name, value);
-			}
-			else
-			{
-				globals.assign(expr.name, value);
+				if (locals.ContainsKey(expr))
+				{
+					int distance = locals[expr];
+					environment.assignAt(distance, expr.name, value);
+				}
+				else
+				{
+					globals.assign(expr.name, value);
+				}
 			}
 
 			return value;
@@ -200,7 +201,9 @@ namespace TypeScriptNative.Interpret
 		{
 			//Console.WriteLine("visitSuperExpr");
 			// int distance = locals.get(expr);
-			int distance = locals[expr];
+			int distance;
+			locals.TryGetValue(expr, out distance);
+
 			TypeScriptNativeClass superclass =
 				(TypeScriptNativeClass)environment.getAt(distance, "super");
 			TypeScriptNativeInstance myObject =
@@ -239,10 +242,7 @@ namespace TypeScriptNative.Interpret
 
 		object Expr.Visitor<object>.visitVariableExpr(Variable expr)
 		{
-			//Console.WriteLine("visitVariableExpr");
 			return lookUpVariable(expr.name, expr);
-			//Console.WriteLine("lookUpVariable on visitVariableExpr return: " + obj.ToString());
-			//return obj;
 		}
 
 		// Statements Visitor
@@ -369,26 +369,14 @@ namespace TypeScriptNative.Interpret
 
 		private Object lookUpVariable(Token name, Expr expr)
 		{
-			//Console.WriteLine("lookUpVariable: " + name.lexeme + " " + name.literal);
-			//Console.WriteLine(name.lexeme + " " + expr);
-			//Console.WriteLine("Locals: ");
-			//foreach (var myName in locals)
-			//{
-			//	//Console.WriteLine(name + " :lexeme: " + name.lexeme + " :literal: " + name.literal);
-			//	//Console.WriteLine(locals[expr]);
-			//}
-			//int distance = locals[name.lexeme];
-
-			// int distance = locals.get(expr);
 			if (locals.ContainsKey(expr))
 			{
-				int distance = locals[expr];
-				if (!distance.Equals(null))
-				{
-					return environment.getAt(distance, name.lexeme);
-				}
+				return environment.getAt(locals[expr], name.lexeme);
 			}
-			return globals.get(name);
+			else
+			{
+				return globals.get(name);
+			}
 		}
 
 		public void resolve(Expr expr, int depth)

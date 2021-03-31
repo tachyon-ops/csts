@@ -7,23 +7,15 @@ namespace TypeScriptNative.AST
 	public abstract class Stmt
 	{
 		public abstract R accept<R>(Visitor<R> visitor);
-
 		public interface Visitor<R>
 		{
 			R visitBlockStmt(Block stmt);
-
 			R visitClassStmt(Class stmt);
-
 			R visitExpressionStmt(Expression stmt);
-
 			R visitFunctionStmt(Function stmt);
-
 			R visitIfStmt(If stmt);
-
 			R visitReturnStmt(Return stmt);
-
 			R visitVarStmt(MyVar stmt);
-
 			R visitWhileStmt(While stmt);
 		}
 	}
@@ -86,12 +78,19 @@ namespace TypeScriptNative.AST
 		public Token name;
 		public List<Token> myParams;
 		public List<Stmt> body;
+		public String typeDefinition;
 
-		public Function(Token name, List<Token> myParams, List<Stmt> body)
+		public Function(
+			Token name,
+			List<Token> myParams,
+			List<Stmt> body,
+			String typeDefinition
+		)
 		{
 			this.name = name;
 			this.myParams = myParams;
 			this.body = body;
+			this.typeDefinition = typeDefinition;
 		}
 
 		override public R accept<R>(Visitor<R> visitor)
@@ -143,11 +142,13 @@ namespace TypeScriptNative.AST
 
 		public Token name;
 		public Expr initializer;
+		public String typeDefinition;
 
-		public MyVar(Token name, Expr initializer)
+		public MyVar(Token name, Expr initializer, String typeDefinition)
 		{
 			this.name = name;
 			this.initializer = initializer;
+			this.typeDefinition = typeDefinition;
 		}
 
 		override public R accept<R>(Visitor<R> visitor)

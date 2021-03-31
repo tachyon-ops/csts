@@ -1,5 +1,9 @@
-function main(x, y) {
-	return x + y;
+var a = 3;
+println(a);
+a = 2;
+println(a);
+
+function f() {
+    println("a" + "b");
 }
-var result = main(10, 20);
-println("result: ", result);
+f();

@@ -8,7 +8,7 @@ namespace TypeScriptNative.globals
 
 		public static String stringify(Object myObject)
 		{
-			if (myObject == null) return "nil";
+			if (myObject == null) return "null";
 			if (myObject is String)
 			{
 				// remove ""

@@ -4,4 +4,6 @@ obj/
 mono_crash.*
 .antlr/
 
-./output/TypeScriptNative.app
+output/TypeScriptNative.app
+output/TypeScriptNative.app/
+output/TypeScriptNative.app/*

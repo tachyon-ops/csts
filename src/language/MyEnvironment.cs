@@ -32,11 +32,18 @@ namespace TypeScriptNative.language
 					"Undefined variable '" + name.lexeme + "'."); //RuntimeError => SystemException
 		}
 
+		public bool KeyExistsSomewhere(Token name)
+		{
+			if (values.ContainsKey(name.lexeme)) return true;
+			if (enclosing != null && enclosing.values.ContainsKey(name.lexeme)) return true;
+			return false;
+		}
+
 		public void assign(Token name, Object value)
 		{
 			if (values.ContainsKey(name.lexeme))
 			{
-				values.Add(name.lexeme, value);
+				values[name.lexeme] = value;
 				return;
 			}
 
@@ -62,7 +69,7 @@ namespace TypeScriptNative.language
 
 		public void assignAt(int distance, Token name, Object value)
 		{
-			ancestor(distance).values.Add(name.lexeme, value);
+			ancestor(distance).values[name.lexeme] = value;
 		}
 
 		public MyEnvironment ancestor(int distance)

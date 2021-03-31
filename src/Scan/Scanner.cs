@@ -21,7 +21,7 @@ namespace TypeScriptNative.Scan
 			{"if", TokenType.IF},
 			{"null", TokenType.NIL},
 			{"or", TokenType.OR},
-			{"print",  TokenType.PRINT},
+			//{"print",  TokenType.PRINT},
 			{"return", TokenType.RETURN},
 			{"super", TokenType.SUPER},
 			{"this", TokenType.THIS},
@@ -34,11 +34,6 @@ namespace TypeScriptNative.Scan
 			{"type", TokenType. TYPE},
 			{"implements", TokenType.IMPLEMENTS},
 			// IDENTIFIER, STRING, NUMBER, BOOLEAN, INT, OBJECT,
-			{"string", TokenType.TYPE_STRING},
-			{"number", TokenType.TYPE_NUMBER},
-			{"boolean", TokenType.TYPE_BOOLEAN},
-			{"int", TokenType.TYPE_INT},
-			{"object", TokenType.TYPE_OBJECT},
 		};
 
 		internal void debug()

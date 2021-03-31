@@ -1,6 +1,6 @@
 #!/bin/bash
-APP_NAME="./output/TypeScriptNative.app"
-PUBLISH_OUTPUT_DIRECTORY="./bin/Debug/net5.0/osx-x64/publish/."
+APP_NAME="./TypeScriptNative.app"
+PUBLISH_OUTPUT_DIRECTORY="../bin/Debug/net5.0/osx-x64/publish/."
 # PUBLISH_OUTPUT_DIRECTORY should point to the output directory of your dotnet publish command.
 # One example is /path/to/your/csproj/bin/Release/netcoreapp3.1/osx-x64/publish/.
 # If you want to change output directories, add `--output /my/directory/path` to your `dotnet publish` command.

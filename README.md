@@ -11,9 +11,15 @@ And... why not?
 
 ### Mac OS
 
-- dotnet publish -r osx-x64
+- `dotnet publish -r osx-x64` (just publishes)
 
 - See more at [https://avaloniaui.net/docs/packing/macOS#manual](https://avaloniaui.net/docs/packing/macOS#manual) 
+
+- `dotnet msbuild -t:BundleApp -p:RuntimeIdentifier=osx-x64` (bundles into TypeScriptNative.app)
+
+### Linux
+
+- `dotnet publish -r linux-x64 -p:PublishSingleFile=true --self-contained true`
 
 ## How to run?
 
@@ -22,13 +28,33 @@ If you have only build the debug, use the following:
 
 ## How?
 
-We use ANTLR as a compiler frontent to define syntax and rules (lexer and parser).
-Machine code generation or runtime exectution is still in research phase
+1. Scan source code and generate token list
+2. Parse the token list
+3. Resolve all structure (Type checking to be done still - it's the next pass)
+4. Interpret
 
-## Generate ANTLR code
+Note: ANTLR was dropped in favour of a manual approach as it is not that much work :)
 
-1. `java -jar ../antlr-4.9.1-complete.jar -Dlanguage=CSharp ./TypeScriptLexer.g4 -visitor -o generated`
-2. `java -jar ../antlr-4.9.1-complete.jar -Dlanguage=CSharp ./TypeScriptParser.g4 -visitor -o generated`
+# Supported and unsupported features
+
+## Unsupported / not implemented
+
+* const
+* let
+* import
+* types
+	* you can type vars and functions but it will do nothing as of now
+* as Type
+
+## Edge cases
+
+* `println("a" + 3);` right now we error it, but according to JS implementation, we should
+allow for it to be concatenated: `a3`. We will warn the user, but allow it.
+
+
+## Bugs
+
+* `println("a" + "b");` -> `a""b`
 
 ## LL code to EXEC
 

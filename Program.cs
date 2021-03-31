@@ -49,7 +49,20 @@ namespace prog_lang
 			Run(Encoding.Default.GetString(bytes));
 
 		}
-		private static void RunPrompt() { }
+		private static void RunPrompt()
+		{
+			while (true) // Loop indefinitely
+			{
+				Console.Write("> "); // Prompt
+				string line = Console.ReadLine(); // Get string from user
+				if (line == null) // Check string
+				{
+					break;
+				}
+				Run(line);
+				ErrorReport.hadError = false;
+			}
+		}
 
 		static int Main(string[] args)
 		{

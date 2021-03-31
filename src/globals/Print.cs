@@ -17,7 +17,9 @@ namespace TypeScriptNative.globals
 			Object value = "";
 			foreach (var arg in arguments)
 			{
-				value += Utils.stringify(arg);
+				var newArg = Utils.stringify(arg);
+				System.Console.WriteLine(newArg);
+				value += newArg;
 			}
 			System.Console.Write(value);
 			return value;

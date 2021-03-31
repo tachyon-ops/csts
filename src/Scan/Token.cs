@@ -7,6 +7,7 @@ namespace TypeScriptNative.Scan
 		public String lexeme;
 		public Object literal;
 		public int line;
+		public String typeDefinition;
 
 		public Token(TokenType type, String lexeme, Object literal, int line)
 		{
@@ -18,7 +19,8 @@ namespace TypeScriptNative.Scan
 
 		override public String ToString()
 		{
-			return type + " " + lexeme + " " + literal;
+			return "<Token type=" + type + " lexeme=" + lexeme +
+				" literal=" + literal + " type=" + typeDefinition + " >";
 		}
 
 	}

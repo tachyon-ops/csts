@@ -255,10 +255,14 @@ namespace TypeScriptNative.Passes
 		//	@Override
 		public Object visitVariableExpr(Variable expr)
 		{
-			if (scopes.Count != 0 && scopes.Peek()[expr.name.lexeme] == false)
+			if (scopes.Count != 0 && scopes.Peek().ContainsKey(expr.name.lexeme))
 			{
-				ErrorReport.error(expr.name,
-						"Can't read local variable in its own initializer.");
+				var value = scopes.Peek()[expr.name.lexeme];
+				if (!value)
+				{
+					ErrorReport.error(expr.name,
+					"Can't read local variable in its own initializer.");
+				}
 			}
 
 			resolveLocal(expr, expr.name);
