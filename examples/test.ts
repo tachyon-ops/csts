@@ -1,9 +1,11 @@
-var a = 3;
+var a: number = 3;
 println(a);
 a = 2;
 println(a);
 
-function f() {
-    println("a" + "b");
+function f(): void {
+	println("a" + "b");
+	println("a" + 3);
 }
 f();
+

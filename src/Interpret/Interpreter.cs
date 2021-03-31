@@ -88,14 +88,25 @@ namespace TypeScriptNative.Interpret
 					{
 						return (double)left + (double)right;
 					}
-
-					if (left is String && right is String)
+					else if (left is String && right is String)
 					{
 						return (String)Utils.stringify(left) + (String)Utils.stringify(right);
 					}
-
-					throw new RuntimeError(expr.myOperator,
-							"Operands must be two numbers or two strings.");
+					else if (left is String && right is Double)
+					{
+						Console.WriteLine("[line " + ((Token)expr.myOperator).line + "] WARN: you are adding a String with a Number");
+						return (String)Utils.stringify(left) + (String)Utils.stringify(right);
+					}
+					else if (left is Double && right is String)
+					{
+						Console.WriteLine("[line " + ((Token)expr.myOperator).line + "] WARN: you are adding a Number with a String");
+						return (String)Utils.stringify(left) + (String)Utils.stringify(right);
+					}
+					else
+					{
+						Console.WriteLine("[line " + ((Token)expr.myOperator).line + "] WARN: you are adding inconsistent types. We will give our best shoot but be warned!");
+						return (String)Utils.stringify(left) + (String)Utils.stringify(right);
+					}
 				case TokenType.SLASH:
 					checkNumberOperands(expr.myOperator, left, right);
 					return (double)left / (double)right;

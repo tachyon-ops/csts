@@ -28,7 +28,6 @@ namespace TypeScriptNative.Passes
 			return null;
 		}
 
-		//	@Override
 		public Object visitClassStmt(Class stmt)
 		{
 			ClassType enclosingClass = currentClass;
@@ -76,14 +75,12 @@ namespace TypeScriptNative.Passes
 			return null;
 		}
 
-		//	@Override
 		public Object visitExpressionStmt(Expression stmt)
 		{
 			resolve(stmt.expression);
 			return null;
 		}
 
-		//	@Override
 		public Object visitFunctionStmt(Function stmt)
 		{
 			declare(stmt.name);
@@ -93,7 +90,6 @@ namespace TypeScriptNative.Passes
 			return null;
 		}
 
-		//	@Override
 		public Object visitIfStmt(If stmt)
 		{
 			resolve(stmt.condition);
@@ -102,7 +98,6 @@ namespace TypeScriptNative.Passes
 			return null;
 		}
 
-		//	@Override
 		public Object visitReturnStmt(Return stmt)
 		{
 			if (currentFunction == FunctionType.NONE)
@@ -123,7 +118,6 @@ namespace TypeScriptNative.Passes
 			return null;
 		}
 
-		//	@Override
 		public Object visitVarStmt(MyVar stmt)
 		{
 			declare(stmt.name);
@@ -135,13 +129,6 @@ namespace TypeScriptNative.Passes
 			return null;
 		}
 
-		//	//	@Override
-		//	//	public Void visitPrintStmt(Stmt.Print stmt) {
-		//	//		resolve(stmt.expression);
-		//	//		return null;
-		//	//	}
-
-		//	@Override
 		public Object visitWhileStmt(While stmt)
 		{
 			resolve(stmt.condition);
@@ -149,7 +136,6 @@ namespace TypeScriptNative.Passes
 			return null;
 		}
 
-		//	@Override
 		public Object visitAssignExpr(Assign expr)
 		{
 			resolve(expr.value);
@@ -157,7 +143,6 @@ namespace TypeScriptNative.Passes
 			return null;
 		}
 
-		//	@Override
 		public Object visitBinaryExpr(Binary expr)
 		{
 			resolve(expr.left);
@@ -165,7 +150,6 @@ namespace TypeScriptNative.Passes
 			return null;
 		}
 
-		//	@Override
 		public Object visitCallExpr(Call expr)
 		{
 			resolve(expr.callee);
@@ -178,27 +162,23 @@ namespace TypeScriptNative.Passes
 			return null;
 		}
 
-		//	@Override
 		public Object visitGetExpr(Get expr)
 		{
 			resolve(expr.myObject);
 			return null;
 		}
 
-		//	@Override
 		public Object visitGroupingExpr(Grouping expr)
 		{
 			resolve(expr.expression);
 			return null;
 		}
 
-		//	@Override
 		public Object visitLiteralExpr(Literal expr)
 		{
 			return null;
 		}
 
-		//	@Override
 		public Object visitLogicalExpr(Logical expr)
 		{
 			resolve(expr.left);
@@ -206,7 +186,6 @@ namespace TypeScriptNative.Passes
 			return null;
 		}
 
-		//	@Override
 		public Object visitSetExpr(Set expr)
 		{
 			resolve(expr.value);
@@ -214,7 +193,6 @@ namespace TypeScriptNative.Passes
 			return null;
 		}
 
-		//	@Override
 		public Object visitSuperExpr(Super expr)
 		{
 			if (currentClass == ClassType.NONE)
@@ -231,7 +209,6 @@ namespace TypeScriptNative.Passes
 			return null;
 		}
 
-		//	@Override
 		public Object visitThisExpr(This expr)
 		{
 			if (currentClass == ClassType.NONE)
@@ -245,14 +222,12 @@ namespace TypeScriptNative.Passes
 			return null;
 		}
 
-		//	@Override
 		public Object visitUnaryExpr(Unary expr)
 		{
 			resolve(expr.right);
 			return null;
 		}
 
-		//	@Override
 		public Object visitVariableExpr(Variable expr)
 		{
 			if (scopes.Count != 0 && scopes.Peek().ContainsKey(expr.name.lexeme))

@@ -52,10 +52,6 @@ Note: ANTLR was dropped in favour of a manual approach as it is not that much wo
 allow for it to be concatenated: `a3`. We will warn the user, but allow it.
 
 
-## Bugs
-
-* `println("a" + "b");` -> `a""b`
-
 ## LL code to EXEC
 
 1. `llc code.ll` -> generates `code.s`
@@ -81,3 +77,7 @@ allow for it to be concatenated: `a3`. We will warn the user, but allow it.
 // https://stackoverflow.com/questions/63542345/how-to-detect-for-loop-block-after-parsing-the-code-using-antlr
 // http://franckgaspoz.fr/en/first-steps-with-antlr4-in-csharp/
 // https://stackoverflow.com/questions/29971097/how-to-create-ast-with-antlr4
+
+# Big thanks to LOX!
+
+Check out the amazing online book (Crafting Interpreters)[https://craftinginterpreters.com] by Bob Nystrom.
