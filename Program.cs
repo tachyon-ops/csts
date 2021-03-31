@@ -1,45 +1,95 @@
 ﻿using System;
-using Antlr4.Runtime;
+using System.IO;
+using System.Text;
+using System.Collections.Generic;
+using TypeScriptNative;
+using TypeScriptNative.Scan;
+using TypeScriptNative.Parse;
+using TypeScriptNative.AST;
+using TypeScriptNative.Interpret;
+using TypeScriptNative.Passes;
 
 namespace prog_lang
 {
+
+	enum Operation
+	{
+		INTERPRETER,
+		COMPILER
+	}
+
 	class Program
 	{
-		static void Main(string[] args)
+		private static readonly Interpreter interpreter = new();
+
+		private static void Run(String source)
 		{
-			Console.WriteLine("Hello World!");
+			Scanner scanner = new(source);
+			List<Token> tokens = scanner.scanTokens();
+			//scanner.debug();
 
-			string typescript = "let employeeName = \"John\";\n\tconsole.log(employeeName);";
-			//ICharStream target = new AntlrInputStream(typescript);
+			Parser parser = new(tokens);
+			List<Stmt> statements = parser.parse();
 
-			//ITokenSource lexer = new TypeScriptLexer(target);
-			//ITokenStream tokens = new CommonTokenStream(lexer);
-			//TypeScriptParser parser = new TypeScriptParser(tokens);
+			// Stop if there was a syntax error.
+			if (ErrorReport.hadError) return;
 
-			//TypeScriptParser.LiteralContext result = parser.literal();
-			//Console.Write(result.ToString());
+			Resolver resolver = new(interpreter);
+			resolver.resolve(statements);
 
+			//// Stop if there was a resolution error.
+			if (ErrorReport.hadError) return;
 
-			try
-			{
-				var stream = new AntlrInputStream(typescript);
-				var lexer = new TypeScriptLexer(stream);
-				var tokenStream = new CommonTokenStream(lexer);
-				var parser = new TypeScriptParser(tokenStream);
-				//parser.program();
-				TypeScriptParser.ProgramContext programReturn = parser.program();
-
-				var tree = programReturn.ToStringTree();
-				Console.Write(tree);
-
-			}
-			catch (Exception ex)
-			{
-				Console.WriteLine(ex.ToString());
-			}
-
-			Console.Write("Press any key to continue...");
-			Console.ReadKey(true);
+			interpreter.interpret(statements);
 		}
+
+		private static void RunFile(String path)
+		{
+			byte[] bytes = File.ReadAllBytes(path);
+			Run(Encoding.Default.GetString(bytes));
+
+		}
+		private static void RunPrompt()
+		{
+			while (true) // Loop indefinitely
+			{
+				Console.Write("> "); // Prompt
+				string line = Console.ReadLine(); // Get string from user
+				if (line == null) // Check string
+				{
+					break;
+				}
+				Run(line);
+				ErrorReport.hadError = false;
+			}
+		}
+
+		static int Main(string[] args)
+		{
+			Console.WriteLine("============================================");
+			Console.WriteLine("||              ::Welcome::               ||");
+			Console.WriteLine("||       TypeScript Native PoC v0.1       ||");
+			Console.WriteLine("============================================");
+
+			if (args.Length > 1)
+			{
+				Console.WriteLine("Usage: jlox [script]");
+				return 64;
+			}
+			else if (args.Length == 1)
+			{
+				RunFile(args[0]);
+			}
+			else
+			{
+				RunPrompt();
+			}
+
+
+			Console.WriteLine("Exiting...");
+			return 0;
+		}
+
 	}
+
 }
