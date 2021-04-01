@@ -22,13 +22,13 @@ namespace prog_lang
 	{
 		private static readonly Interpreter interpreter = new();
 
-		private static void Run(String source)
+		private static void Run(String source, String path)
 		{
 			Scanner scanner = new(source);
 			List<Token> tokens = scanner.scanTokens();
 			//scanner.debug();
 
-			Parser parser = new(tokens);
+			Parser parser = new(tokens, path);
 			List<Stmt> statements = parser.parse();
 
 			// Stop if there was a syntax error.
@@ -45,12 +45,22 @@ namespace prog_lang
 
 		private static void RunFile(String path)
 		{
-			byte[] bytes = File.ReadAllBytes(path);
-			Run(Encoding.Default.GetString(bytes));
+			if (!File.Exists(path)) {
+				Console.WriteLine("Provided file was not found.");
+			}
+			else
+			{
+				byte[] bytes = File.ReadAllBytes(path);
+				var directory = Path.GetDirectoryName(path);
+				Console.WriteLine("Running from the following path: " + directory);
+				Run(Encoding.Default.GetString(bytes), directory);
+			}
 
 		}
 		private static void RunPrompt()
 		{
+			var path = AppContext.BaseDirectory;
+			Console.WriteLine("Running from the following path: " + path);
 			while (true) // Loop indefinitely
 			{
 				Console.Write("> "); // Prompt
@@ -59,7 +69,7 @@ namespace prog_lang
 				{
 					break;
 				}
-				Run(line);
+				Run(line, path);
 				ErrorReport.hadError = false;
 			}
 		}

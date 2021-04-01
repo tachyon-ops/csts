@@ -43,6 +43,10 @@ namespace TypeScriptNative.Scan
 		CONST,
 		LET,
 		WHILE,
+		IMPORT,
+		EXPORT,
+		AS,
+		FROM,
 		//PRINT,
 
 		// Literals.

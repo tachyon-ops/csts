@@ -36,5 +36,6 @@
     <Folder Include="src\Interpret\" />
     <Folder Include="src\globals\" />
     <Folder Include="src\language\" />
+    <Folder Include="examples\import\" />
   </ItemGroup>
 </Project>

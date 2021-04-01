@@ -31,6 +31,10 @@ namespace TypeScriptNative.Scan
 			{"interface", TokenType.INTERFACE},
 			{"type", TokenType. TYPE},
 			{"implements", TokenType.IMPLEMENTS},
+			{"import", TokenType.IMPORT},
+			{"export", TokenType.EXPORT},
+			{"as", TokenType.AS},
+			{"from", TokenType.FROM},
 		};
 
 		internal void debug()

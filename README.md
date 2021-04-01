@@ -60,6 +60,8 @@ allow for it to be concatenated: `a3`. We will warn the user, but allow it.
 
 ## Resources
 
+- Test TypeScript: https://codesandbox.io/s/react-typescript-playground-forked-ipe11?file=/src/index.tsx
+
 - [Roman language (and how to interpret a simple ANTLR)](https://gjdanis.github.io/2016/01/23/roman/) and a [SO](https://codereview.stackexchange.com/questions/117711/roman-numerals-with-antlr) to explain further.
 
 - [Basic C# interpreter](https://github.com/pg94au/Blinkenlights-.NET-Basic-Interpreter)
@@ -74,10 +76,12 @@ allow for it to be concatenated: `a3`. We will warn the user, but allow it.
 - [The Definitive ANTLR 4 Reference](https://pragprog.com/titles/tpantlr2/the-definitive-antlr-4-reference/)
 
 
-// https://stackoverflow.com/questions/63542345/how-to-detect-for-loop-block-after-parsing-the-code-using-antlr
-// http://franckgaspoz.fr/en/first-steps-with-antlr4-in-csharp/
-// https://stackoverflow.com/questions/29971097/how-to-create-ast-with-antlr4
+* https://stackoverflow.com/questions/63542345/how-to-detect-for-loop-block-after-parsing-the-code-using-antlr
+
+* http://franckgaspoz.fr/en/first-steps-with-antlr4-in-csharp/
+
+* https://stackoverflow.com/questions/29971097/how-to-create-ast-with-antlr4
 
 # Big thanks to LOX!
 
-Check out the amazing online book (Crafting Interpreters)[https://craftinginterpreters.com] by Bob Nystrom.
+Check out the amazing online book [Crafting Interpreters](https://craftinginterpreters.com) by Bob Nystrom.

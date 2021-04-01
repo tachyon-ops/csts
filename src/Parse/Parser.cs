@@ -1,8 +1,10 @@
 using System;
+using System.IO;
 using System.Collections.Generic;
 
 using TypeScriptNative.Scan;
 using TypeScriptNative.AST;
+using TypeScriptNative.globals;
 
 namespace TypeScriptNative.Parse
 {
@@ -11,9 +13,12 @@ namespace TypeScriptNative.Parse
 
 		private List<Token> tokens;
 		private int current = 0;
-		public Parser(List<Token> tokens)
+		private String basePath;
+
+		public Parser(List<Token> tokens, String path)
 		{
 			this.tokens = tokens;
+			this.basePath = path;
 		}
 
 		public List<Stmt> parse()
@@ -36,6 +41,7 @@ namespace TypeScriptNative.Parse
 		{
 			try
 			{
+				if (match(TokenType.IMPORT)) return importDeclaration();
 				if (match(TokenType.CLASS)) return classDeclaration();
 				if (match(TokenType.FUN)) return function("function");
 				if (match(TokenType.VAR)) return varDeclaration();
@@ -47,6 +53,56 @@ namespace TypeScriptNative.Parse
 				synchronize();
 				return null;
 			}
+		}
+
+		private Stmt importDeclaration()
+		{
+			// import { identifier } from 'path';
+
+			List<Token> importIdentifiers = new List<Token>();
+
+			if (match(TokenType.LEFT_BRACE))
+			{
+				if (!check(TokenType.RIGHT_BRACE))
+				{
+					do
+					{
+						Token importIdentifier = consume(TokenType.IDENTIFIER, "Expect identifier.");
+						importIdentifiers.Add(importIdentifier);
+					} while (match(TokenType.COMMA));
+				}
+				consume(TokenType.RIGHT_BRACE, "Expect '}' after parameters.");
+			}
+			else
+			{
+				Token importIdentifier = consume(TokenType.IDENTIFIER, "Expect identifier.");
+			}
+
+			consume(TokenType.FROM, "Expect 'from' after 'import identifier' or 'import { identifiers }'.");
+
+			// now we add a new mini parser and inject the variable we want in here
+			// not sure how to avoid other variables from the imports as of yet
+			if (check(TokenType.STRING))
+			{
+				Token importFile = consume(TokenType.STRING, "Expect 'path' after import X from");
+				String filePath = this.basePath + "/" + Utils.stringify(importFile.lexeme) + ".ts";
+				Console.WriteLine("filePath: " + filePath);
+				if (!File.Exists(filePath))
+				{
+					error(importFile, "Import file not found");
+				}
+				else
+				{
+					Console.WriteLine("Importing of files is not yet implemented");
+					//byte[] bytes = File.ReadAllBytes(path);
+					//var directory = Path.GetDirectoryName(path);
+					//Console.WriteLine("Running from the following path: " + directory);
+					//Run(Encoding.Default.GetString(bytes), directory);
+				}
+				consume(TokenType.SEMICOLON, "Expect ';' after statement.");
+			}
+
+			return new Block(new List<Stmt>());
 		}
 
 		private Stmt classDeclaration()
