@@ -96,7 +96,7 @@ namespace prog_lang
 			}
 
 
-			Console.WriteLine("Exiting...");
+			Console.WriteLine("Exiting...\n");
 			return 0;
 		}
 
