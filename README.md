@@ -1,19 +1,23 @@
-# csts
+
+# CSharpTypeScript
 
 Typescript runtime in C# (WIP and PoC trial)
-Note that this is a Proof Of Concept! By all means this is not to be used for production, and is intended as a SandBox and test ground. It is intended to defy the very assumptions most people hold when they think 'javascript' or 'typescript' need to be executed in a browser. No, that is not a necessity and one could even implement assembly code from either to compile to native architectures.
-Be aware that you are entering an opinionated real, for which barriers need to be taken down. The first barrier is always our dearest: what we assume we know - and usually it is our biggest fault and impediment to progress. It is a collective fault of mankind, as without it I am sure we wouldn't be in such an ecologic hassle, having move past our problems.
+Note that this is a Proof Of Concept!
+By all means this is NOT to be used for production, and is intended as a SandBox and test ground.
 
-This is the attempt to prove that we use too much processing power because we are lazy: we build with simple tools and languages - no harm there, and we should all aim to do that - but we care not to improve the foundations of our technology stack. Today, we surely burn through energy and batteries with our CPUs at a rate that could be improved, if only we had less browser driven development even for native applications.
+This is the attempt to prove that we use too much processing power because we are lazy: we build with simple tools and languages - no harm there, and we should all aim to do that - but we care not to improve the foundations of our technology stack. Today, we surely burn through energy and batteries with our CPUs at a rate that could be improved, if only we had less browser driven development even more so for native applications.
 
-If we as developers do that, shouldn't we also aim to clean up and build a more pristine foundation? I believe we should. If you believe so as well, reach out and try your best. You might learn a lot with that mindset.
+It is intended to defy the very assumptions most people hold when they think 'javascript' or 'typescript' need to be executed in a browser. No, that is not a necessity and one could even implement assembly code from either to compile to native architectures.
+Be aware that you are entering an opinionated realm, for which barriers need to be taken down. The first barrier is always our dearest: what we assume we know - which is usually our biggest fault and impediment to progress.
+
+If we as developers aim at elegant and simple code, shouldn't we also aim to clean up and build a more pristine foundation? I believe we should. If you believe so as well, reach out and try your best. You might learn a lot with that mindset.
 
 ## Why?
 
 The simplicity of TS is a great asset and if one could have it as a scripting language as [lua](https://www.lua.org/home.html) or [AngelScript](https://www.angelcode.com/angelscript/), we could gain enourmous power. Obviously, if one can runtime a subset of TS, we might as well compile it :)
 And... why not?
 
-## How to publish?
+## How to publish?
 
 ### Mac OS
 
@@ -23,11 +27,11 @@ And... why not?
 
 - `dotnet msbuild -t:BundleApp -p:RuntimeIdentifier=osx-x64` (bundles into TypeScriptNative.app)
 
-### Linux
+### Linux
 
 - `dotnet publish -r linux-x64 -p:PublishSingleFile=true --self-contained true`
 
-## How to run?
+## How to run?
 
 If you have only build the debug, use the following:
 
@@ -95,7 +99,9 @@ Check out the amazing online book [Crafting Interpreters](https://craftinginterp
 
 Here are a abit of juicy results for you :)
 
-## CPP Benchmark
+For now, we just do a `time ./executable` with some example of the "hello world". Of course the inner guts of the language are not sampled, therefore I antecipate the analysis of environements would prove that my PoC is the worst performing of all current examples. Nevertheless, it's just implementation detail if you bear with me :) .
+
+## CPP Benchmark
 
 Go to `benchmarks/cpp` and execute
 
@@ -108,7 +114,7 @@ Hello, world!
 ./benchmarks/c/hello ./examples/time-benchmark.ts  0.00s user 0.00s system 69% cpu 0.005 total
 ```
 
-## Deno Benchmark
+## Deno Benchmark
 
 Install [deno](https://deno.land) and:
 
